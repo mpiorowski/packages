@@ -11,7 +11,4 @@ export { default as SimpleInput } from './@components/simpleInput.svelte';
 export { default as Textarea } from './@components/textarea.svelte';
 export * from './@components/toast/toast.helper';
 export { default as Toast } from './@components/toast/toast.svelte';
-export * from './assertIsDefined';
-export * from './checkEnv';
-export * from './clickOutside.util';
-export * from './searchArray';
+

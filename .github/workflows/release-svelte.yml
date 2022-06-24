@@ -6,23 +6,22 @@ on:
       - 'svelte*'
 
 jobs:
-  tagged-release:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - name: 'Build & test'
-        run: |
-          echo "done!"
+  # tagged-release:
+  #   runs-on: 'ubuntu-latest'
+  #   steps:
+  #     - name: 'Build & test'
+  #       run: |
+  #         echo "done!"
 
-      - uses: 'marvinpinto/action-automatic-releases@latest'
-        with:
-          repo_token: '${{ secrets.GITHUB_TOKEN }}'
-          prerelease: false
-          files: |
-            LICENSE.txt
-            *.jar
+  #     - uses: 'marvinpinto/action-automatic-releases@latest'
+  #       with:
+  #         repo_token: '${{ secrets.GITHUB_TOKEN }}'
+  #         prerelease: false
+  #         files: |
+  #           LICENSE.txt
+  #           *.jar
 
   build:
-    needs: tagged-release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

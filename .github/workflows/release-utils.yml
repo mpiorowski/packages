@@ -1,8 +1,13 @@
 name: Release utils package
 
+# on:
+#   release:
+#     types: [created]
+
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - 'utils*'
 
 jobs:
   build:
