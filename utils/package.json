@@ -1,0 +1,36 @@
+{
+  "name": "@mpiorowski/utils",
+  "version": "1.6.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test": "exit 0",
+    "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
+    "package": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpiorowski/packages.git"
+  },
+  "publishConfig": {
+    "@mpiorowski:registry": "https://npm.pkg.github.com"
+  },
+  "author": "Mateusz Piórowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mpiorowski/packages/issues"
+  },
+  "homepage": "https://github.com/mpiorowski/packages#readme",
+  "dependencies": {
+    "@types/node": "^17.0.40",
+    "tslib": "^2.3.1",
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.6.2",
+    "eslint": "^8.16.0"
+  }
+}

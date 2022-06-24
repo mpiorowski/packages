@@ -1,0 +1,52 @@
+name: Release svelte package
+
+on:
+  push:
+    tags:
+      - 'svelte*'
+
+jobs:
+  tagged-release:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Build & test'
+        run: |
+          echo "done!"
+
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.GITHUB_TOKEN }}'
+          prerelease: false
+          files: |
+            LICENSE.txt
+            *.jar
+
+  build:
+    needs: tagged-release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci --prefix ./svelte
+      - run: npm test --prefix ./svelte
+      - run: npm run --prefix ./svelte lint
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci --prefix ./svelte
+      - run: npm run --prefix ./svelte package
+      - run: npm publish ./svelte/package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
