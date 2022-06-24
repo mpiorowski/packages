@@ -3,7 +3,7 @@
 
   export let label: string;
   export let value: unknown;
-  export let error: string = '';
+  export let error = '';
   export let required = false;
   export let disabled = false;
 </script>
@@ -18,7 +18,11 @@
     {disabled}
     bind:value
     class={`transition shadow-sm h-9 block w-full px-3.5 py-1.5 text-sm rounded-md border focus:ring-2 focus:ring-sky-300 
-      ${error ? 'border-red-800 text-red-500 bg-red-100' : 'border-gray-300 text-gray-900 bg-gray-50'}`}
+      ${
+        error
+          ? 'border-red-800 text-red-500 bg-red-100'
+          : 'border-gray-300 text-gray-900 bg-gray-50'
+      }`}
   >
     <slot />
   </select>

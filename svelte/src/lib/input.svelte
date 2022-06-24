@@ -3,8 +3,14 @@
 
   export let label: string;
   export let value: unknown;
-  export let error: string = '';
-  export let type: 'text' | 'number' | 'password' | 'email' | 'datetime-local' | 'date' = 'text';
+  export let error = '';
+  export let type:
+    | 'text'
+    | 'number'
+    | 'password'
+    | 'email'
+    | 'datetime-local'
+    | 'date' = 'text';
   export let required = false;
   export let disabled = false;
 

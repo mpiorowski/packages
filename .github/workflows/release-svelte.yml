@@ -29,7 +29,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci --prefix ./svelte
-      - run: npm test --prefix ./svelte
+      - run: npm run --prefix ./svelte build
+      - run: npm run --prefix ./svelte test
       - run: npm run --prefix ./svelte lint
 
   publish-gpr:

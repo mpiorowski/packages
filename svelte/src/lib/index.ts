@@ -11,4 +11,3 @@ export { default as SimpleInput } from './simpleInput.svelte';
 export { default as Textarea } from './textarea.svelte';
 export * from './toast/toast.helper';
 export { default as Toast } from './toast/toast.svelte';
-

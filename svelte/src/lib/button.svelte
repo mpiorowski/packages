@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let form: string = '';
+  export let form = '';
   export let style: 'green' | 'red' | 'ghost' = 'green';
   export let type: 'button' | 'submit' = 'button';
   export let submitting = false;

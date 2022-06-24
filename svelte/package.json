@@ -6,7 +6,8 @@
   "scripts": {
     "test": "exit 0",
     "start": "svelte-kit dev",
-    "build": "tsc",
+    "build": "svelte-kit build",
+    "lint": "svelte-check --tsconfig ./tsconfig.json && eslint --ext .ts,.tsx,.svelte . --max-warnings 0",
     "package": "svelte-kit package"
   },
   "repository": {
