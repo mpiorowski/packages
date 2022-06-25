@@ -1,5 +1,6 @@
 <script lang="ts">
   import { t } from 'svelte-i18n';
+  import './app.css';
 
   export let label: string;
   export let value: unknown;

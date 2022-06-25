@@ -1,4 +1,5 @@
 <script lang="ts">
+  import './app.css';
   export let form = '';
   export let style: 'green' | 'red' | 'ghost' = 'green';
   export let type: 'button' | 'submit' = 'button';
