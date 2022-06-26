@@ -1,4 +1,6 @@
-export * from './src/assertIsDefined';
-export * from './src/checkEnv';
-export * from './src/clickOutside';
-export * from './src/searchArray';
+import { assertIsDefined } from './src/assertIsDefined';
+import { checkEnv } from './src/checkEnv';
+import { clickOutside } from './src/clickOutside';
+import { searchArray } from './src/searchArray';
+
+export { assertIsDefined, checkEnv, searchArray, clickOutside };
