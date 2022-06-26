@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "./package",
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "resolveJsonModule": true,
 
     /* Language and Environment */
