@@ -1,8 +1,10 @@
 {
   "name": "@mpiorowski/utils",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "",
   "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "exit 0",
     "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
@@ -23,14 +25,15 @@
   "homepage": "https://github.com/mpiorowski/packages#readme",
   "dependencies": {
     "@types/node": "^17.0.40",
+    "svelte": "^3.48.0",
     "tslib": "^2.3.1",
     "typescript": "^4.7.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.6.2",
-    "eslint": "^8.16.0"
+    "prettier": "^2.6.2"
   }
 }
