@@ -9,7 +9,7 @@
     "isolatedModules": true,
 
     /* Language and Environment */
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "module": "esnext",
     "target": "es2020",
     "lib": ["es2020", "DOM"],
