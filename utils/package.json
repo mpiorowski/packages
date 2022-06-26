@@ -1,12 +1,12 @@
 {
   "name": "@mpiorowski/utils",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "",
   "type": "module",
   "scripts": {
     "test": "exit 0",
     "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
-    "package": "tsc"
+    "package": "rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -27,11 +27,13 @@
     "typescript": "^4.7.3"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "rollup": "^2.75.7"
   },
   "exports": {
     ".": "./index.js",
