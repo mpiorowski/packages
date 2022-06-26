@@ -1,10 +1,8 @@
 {
   "name": "@mpiorowski/utils",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "",
   "type": "module",
-  "main": "./index.js",
-  "types": "./index.d.ts",
   "scripts": {
     "test": "exit 0",
     "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
@@ -34,5 +32,13 @@
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.6.2"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./assertIsDefined": "./lib/assertIsDefined.js",
+    "./checkEnv": "./lib/checkEnv.js",
+    "./searchArray": "./lib/searchArray.js",
+    "./clickOutside": "./lib/clickOutside.js",
+    "./package.json": "./package.json"
   }
 }
