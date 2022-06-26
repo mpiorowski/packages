@@ -37,5 +37,5 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": ["package.json", "lib/**/*.ts", "lib/**/*.tsx"]
+  "include": ["package.json", "**/*.ts"]
 }
