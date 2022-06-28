@@ -1,8 +1,11 @@
 {
   "name": "@mpiorowski/utils",
-  "version": "1.7.9",
+  "version": "1.7.10",
   "description": "",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "exit 0",
     "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
@@ -35,5 +38,9 @@
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.6.2",
     "rollup": "^2.75.7"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
   }
 }

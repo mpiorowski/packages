@@ -3,8 +3,7 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'package',
-    format: 'iife',
-    name: 'index',
+    sourcemap: true,
   },
-  plugins: [typescript()],
+  plugins: [typescript({ tsconfig: './tsconfig.json' })],
 };
