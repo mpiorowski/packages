@@ -6,8 +6,7 @@
   "scripts": {
     "test": "exit 0",
     "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
-    "package": "rollup -c rollup.config.js && cp package.json package/package.json",
-    "package2": "rollup -c rollup.config.js"
+    "package": "rollup -c rollup.config.js && cp package.json package/package.json"
   },
   "repository": {
     "type": "git",
