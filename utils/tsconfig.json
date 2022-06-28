@@ -8,9 +8,9 @@
 
     /* Language and Environment */
     "moduleResolution": "node",
-    "module": "es2020",
-    "lib": ["es2020", "DOM"],
-    "target": "es2020",
+    "module": "esnext",
+    "lib": ["esnext", "DOM"],
+    "target": "esnext",
 
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
