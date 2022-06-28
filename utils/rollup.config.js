@@ -3,7 +3,8 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'package',
-    format: 'cjs',
+    format: 'umd',
+    name: 'index',
   },
   plugins: [typescript()],
 };
