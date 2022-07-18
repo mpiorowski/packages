@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./package",
+    "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,

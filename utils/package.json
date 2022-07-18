@@ -24,6 +24,10 @@
     "url": "https://github.com/mpiorowski/packages/issues"
   },
   "homepage": "https://github.com/mpiorowski/packages#readme",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "@types/node": "^17.0.40",
     "tslib": "^2.3.1",
@@ -38,9 +42,5 @@
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.6.2",
     "rollup": "^2.75.7"
-  },
-  "exports": {
-    ".": "./index.js",
-    "./package.json": "./package.json"
   }
 }
