@@ -1,14 +1,12 @@
 {
   "name": "@mpiorowski/svelte",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "package": "rollup -c rollup.config.js && cp package.json package/package.json"
   },
@@ -29,6 +27,7 @@
     ".": "./index.js",
     "./package.json": "./package.json"
   },
+  "svelte": "./index.js",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",

@@ -1,21 +1,33 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "private": true,
+  "name": "@mpiorowski/svelte",
+  "version": "1.7.3",
+  "type": "module",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "package": "rollup -c rollup.config.js && cp package.json package/package.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpiorowski/packages.git"
+  },
+  "publishConfig": {
+    "@mpiorowski:registry": "https://npm.pkg.github.com"
+  },
+  "author": "Mateusz Piórowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mpiorowski/packages/issues"
+  },
+  "homepage": "https://github.com/mpiorowski/packages#readme",
   "exports": {
     ".": "./index.js",
     "./package.json": "./package.json"
   },
+  "svelte": "./index.js",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
