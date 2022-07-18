@@ -6,21 +6,6 @@ on:
       - 'svelte*'
 
 jobs:
-  # tagged-release:
-  #   runs-on: 'ubuntu-latest'
-  #   steps:
-  #     - name: 'Build & test'
-  #       run: |
-  #         echo "done!"
-
-  #     - uses: 'marvinpinto/action-automatic-releases@latest'
-  #       with:
-  #         repo_token: '${{ secrets.GITHUB_TOKEN }}'
-  #         prerelease: false
-  #         files: |
-  #           LICENSE.txt
-  #           *.jar
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -29,9 +14,9 @@ jobs:
         with:
           node-version: 16
       - run: npm ci --prefix ./svelte
-      - run: npm run --prefix ./svelte build
-      - run: npm run --prefix ./svelte test
-      - run: npm run --prefix ./svelte lint
+      # - run: npm run --prefix ./svelte build
+      # - run: npm run --prefix ./svelte test
+      # - run: npm run --prefix ./svelte lint
 
   publish-gpr:
     needs: build
