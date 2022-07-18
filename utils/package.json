@@ -1,7 +1,6 @@
 {
   "name": "@mpiorowski/utils",
   "version": "1.7.10",
-  "description": "",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
