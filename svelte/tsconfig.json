@@ -1,6 +1,5 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
-
   "compilerOptions": {
     "outDir": "./package",
     "forceConsistentCasingInFileNames": true,
@@ -40,5 +39,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
+  "include": ["package.json", "**/*.ts", "**/*.svelte"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
