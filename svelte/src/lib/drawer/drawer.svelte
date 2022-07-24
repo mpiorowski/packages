@@ -1,7 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/env';
   import { fade, fly } from 'svelte/transition';
-  import { isDrawerOpen } from './store';
+  import { isDrawerOpen } from './drawer.util';
 
   export let onClose: () => void;
   export let isOpen: boolean;

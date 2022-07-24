@@ -1,12 +1,14 @@
 <script lang="ts">
-  import Drawer from '../lib/drawer.svelte';
-  import Button from '../lib/form/button.svelte';
-  import Input from '../lib/form/input.svelte';
-  import InputNumber from '../lib/form/inputNumber.svelte';
-  import Pagination from '../lib/pagination.svelte';
-  import { usePagination } from '../lib/pagination.util';
-  import Spinner from '../lib/spinner.svelte';
-  import { isDrawerOpen } from '../lib/store';
+  import {
+    Button,
+    Drawer,
+    Input,
+    InputNumber,
+    isDrawerOpen,
+    Pagination,
+    Spinner,
+    usePagination,
+  } from '../lib';
   import {
     toastDelete,
     toastError,
