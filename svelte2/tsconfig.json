@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "outDir": "./package",
     "forceConsistentCasingInFileNames": true,
@@ -6,7 +7,6 @@
     "declaration": true,
     "declarationMap": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
 
     /* Language and Environment */
     "moduleResolution": "node",
@@ -39,5 +39,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": ["package.json", "**/*.ts"]
+  "include": ["package.json", "**/*.ts", "**/*.svelte"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }

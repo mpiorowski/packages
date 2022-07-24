@@ -1,49 +1,78 @@
 <script lang="ts">
-  import { t } from 'svelte-i18n';
-  import './app.css';
+	export let value: unknown;
+	export let label: string;
+	export let error = '';
+	export let type: 'text' | 'password' | 'email' | 'datetime-local' | 'date' = 'text';
+	export let required = false;
+	export let disabled = false;
 
-  export let label: string;
-  export let value: unknown;
-  export let error = '';
-  export let type:
-    | 'text'
-    | 'number'
-    | 'password'
-    | 'email'
-    | 'datetime-local'
-    | 'date' = 'text';
-  export let required = false;
-  export let disabled = false;
+	export let maxlength: number | undefined = undefined;
 
-  export let max: string | undefined = undefined;
-  export let min: string | undefined = undefined;
-
-  function typeAction(node: HTMLInputElement) {
-    node.type = type;
-  }
+	function typeAction(node: HTMLInputElement) {
+		node.type = type;
+	}
 </script>
 
-<div class="w-full">
-  <label for={label} class="block mb-1 text-sm font-medium h-5 ">
-    {label}
-    {#if required}<span class="text-red-600">*</span>{/if}
-  </label>
-  <input
-    use:typeAction
-    on:input
-    bind:value
-    id={label}
-    step="0.1"
-    {disabled}
-    {max}
-    {min}
-    class={`transition h-9 shadow-sm block w-full px-3.5 py-1.5 text-sm rounded-md border focus:ring-2 focus:ring-sky-300 border-gray-300 text-gray-900 bg-gray-50
-  ${error ? 'border-red-800 text-red-500 bg-red-100' : ''}
-  ${disabled ? 'bg-gray-200' : ''}`}
-  />
-  <p class="mt-1 h-5 text-sm text-red-400 font-bold">
-    {#if error}
-      {$t(error)}
-    {/if}
-  </p>
-</div>
+<label class="label">
+	{label}
+	{#if required}<span class="required">*</span>{/if}
+	<input
+		use:typeAction
+		bind:value
+		{disabled}
+		{maxlength}
+		class={'transition shadow ' + (error ? 'error ' : '') + (disabled ? 'disabled ' : '')}
+	/>
+	<p class="mt-1 h-5 text-sm text-red-400 font-bold">
+		{#if error}
+			{error}
+		{/if}
+	</p>
+</label>
+
+<style>
+	.label {
+		width: 100%;
+		display: block;
+		font-size: 0.875rem /* 14px */;
+		line-height: 1.25rem /* 20px */;
+		font-weight: 500;
+	}
+	.required {
+		color: var(--red-600);
+	}
+	input {
+		display: block;
+		width: 100%;
+		height: 2.25rem /* 36px */;
+		padding-left: 0.875rem /* 14px */;
+		padding-right: 0.875rem /* 14px */;
+		padding-top: 0.375rem /* 6px */;
+		padding-bottom: 0.375rem /* 6px */;
+		font-size: 0.875rem /* 14px */;
+		line-height: 1.25rem /* 20px */;
+		color: var(--gray-50);
+		border: 1px solid var(--slate-600);
+		border-radius: 0.375rem /* 6px */;
+		background-color: var(--slate-600);
+	}
+	input:focus {
+		box-shadow: var(--ring);
+	}
+
+	/* input {
+		@apply transition h-9 shadow-sm block w-full px-3.5 py-1.5 text-sm rounded-md border  border-slate-600 text-gray-50  bg-slate-600;
+	} */
+	/* input:focus {
+		@apply ring-2 ring-slate-400;
+	} */
+	input.error {
+		@apply border-red-400 text-red-400;
+	}
+	input.disabled {
+		@apply bg-gray-200;
+	}
+	.container {
+		width: 100%;
+	}
+</style>

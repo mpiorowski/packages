@@ -4,9 +4,6 @@
     "type": "git",
     "url": "git+https://github.com/mpiorowski/packages.git"
   },
-  "publishConfig": {
-    "@mpiorowski:registry": "https://npm.pkg.github.com"
-  },
   "author": "Mateusz Piórowski",
   "license": "MIT",
   "bugs": {

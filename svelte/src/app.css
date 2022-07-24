@@ -1,0 +1,123 @@
+:root {
+	--text: var(--gray-50);
+
+	--gray-50: rgb(249 250 251);
+	--gray-100: rgb(243 244 246);
+	--gray-200: rgb(229 231 235);
+	--gray-300: rgb(209 213 219);
+	--gray-400: rgb(156 163 175);
+	--gray-500: rgb(107 114 128);
+	--gray-600: rgb(75 85 99);
+	--gray-700: rgb(55 65 81);
+	--gray-800: rgb(31 41 55);
+	--gray-900: rgb(17 24 39);
+
+	--blue-400: rgb(96 165 250);
+	--blue-600: rgb(37 99 235);
+	--blue-700: rgb(29 78 216);
+
+	--teal-300: rgb(94 234 212);
+	--teal-600: rgb(13 148 136);
+	--teal-700: rgb(15 118 110);
+
+	--sky-300: rgb(125 211 252);
+	--sky-700: rgb(3 105 161);
+	--sky-800: rgb(7 89 133);
+	--sky-900: rgb(12 74 110);
+
+	--red-300: rgb(252 165 165);
+	--red-500: rgb(239 68 68);
+	--red-700: rgb(185 28 28);
+	--red-800: rgb(153 27 27);
+
+	--slate-50: #f8fafc;
+	--slate-100: #f1f5f9;
+	--slate-200: #e2e8f0;
+	--slate-300: #cbd5e1;
+	--slate-400: #94a3b8;
+	--slate-500: #64748b;
+	--slate-600: #475569;
+	--slate-700: #334155;
+	--slate-800: #1e293b;
+	--slate-900: #0f172a;
+
+	--ring: rgb(255, 255, 255) 0px 0px 0px 0px, var(--slate-400) 0px 0px 0px 2px,
+		rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #333;
+	background: var(--slate-800);
+}
+
+.transition {
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke,
+		opacity, box-shadow, transform, filter, backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+
+.shadow {
+	--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+	--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+		var(--tw-shadow);
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+	margin: 0;
+}
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: theme('borderColor.DEFAULT', currentColor);
+	outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+ol,
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+}

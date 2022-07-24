@@ -1,0 +1,12 @@
+.drawer-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: auto; /* Disable horizontal scroll */
+}
+.drawer-footer {
+  gap: 10px;
+  padding-right: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+}
