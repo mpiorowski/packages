@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci --prefix ./svelte
+      # - run: npm ci --prefix ./svelte
       # - run: npm run --prefix ./svelte build
       # - run: npm run --prefix ./svelte test
       # - run: npm run --prefix ./svelte lint
