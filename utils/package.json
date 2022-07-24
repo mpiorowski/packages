@@ -5,11 +5,9 @@
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
-  "scripts": {
-    "test": "exit 0",
-    "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
-    "package": "rollup -c rollup.config.js && cp package.json package/package.json"
-  },
+  "author": "Mateusz Piórowski",
+  "license": "MIT",
+  "homepage": "https://github.com/mpiorowski/packages#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mpiorowski/packages.git"
@@ -17,12 +15,14 @@
   "publishConfig": {
     "@mpiorowski:registry": "https://npm.pkg.github.com"
   },
-  "author": "Mateusz Piórowski",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mpiorowski/packages/issues"
   },
-  "homepage": "https://github.com/mpiorowski/packages#readme",
+  "scripts": {
+    "test": "exit 0",
+    "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
+    "package": "rollup -c rollup.config.js && cp package.json package/package.json"
+  },
   "exports": {
     ".": "./index.js",
     "./package.json": "./package.json"

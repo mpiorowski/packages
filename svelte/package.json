@@ -1,6 +1,23 @@
 {
-	"name": "svelte",
-	"version": "0.0.1",
+	"name": "@mpiorowski/svelte",
+	"version": "1.7.5",
+	"type": "module",
+	"main": "index.js",
+	"module": "index.js",
+	"types": "index.d.ts",
+	"author": "Mateusz Piórowski",
+	"license": "MIT",
+	"homepage": "https://github.com/mpiorowski/packages#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mpiorowski/packages.git"
+	},
+	"publishConfig": {
+		"@mpiorowski:registry": "https://npm.pkg.github.com"
+	},
+	"bugs": {
+		"url": "https://github.com/mpiorowski/packages/issues"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -31,6 +48,5 @@
 		"tslib": "^2.3.1",
 		"typescript": "^4.7.4",
 		"vite": "^3.0.0"
-	},
-	"type": "module"
+	}
 }
