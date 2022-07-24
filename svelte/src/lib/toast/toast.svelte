@@ -1,8 +1,10 @@
 <script lang="ts">
-  import { t } from 'svelte-i18n';
   import { backOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
   import { notifications, ToastType } from './toast.helper';
+  export let saveMsg = 'Saved';
+  export let errorMsg = 'Error';
+  export let deleteMsg = 'Deleted';
 </script>
 
 <div class="notifications">
@@ -20,10 +22,19 @@
       class={'mb-3 rounded w-fit m-auto shadow-md text-gray-100 ' +
         (notification.type === ToastType.SUCCESS ? 'bg-green-700' : '') +
         (notification.type === ToastType.ERROR ? 'bg-red-700' : '') +
-        (notification.type === ToastType.INFO ? 'bg-blue-700' : '')}
+        (notification.type === ToastType.INFO ? 'bg-blue-700' : '') +
+        (notification.type === ToastType.WARNING ? 'bg-orange-600' : '')}
     >
       <div class="px-8 py-3 block font-normal text-lg">
-        {$t(notification.message)}
+        {#if notification.message === 'common.saved'}
+          {saveMsg}
+        {:else if notification.message === 'common.error'}
+          {errorMsg}
+        {:else if notification.message === 'common.deleted'}
+          {deleteMsg}
+        {:else}
+          {notification.message}
+        {/if}
       </div>
       {#if notification.icon}<i class={notification.icon} />{/if}
     </div>

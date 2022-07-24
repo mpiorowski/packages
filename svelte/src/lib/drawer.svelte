@@ -1,14 +1,11 @@
 <script lang="ts">
   import { browser } from '$app/env';
-  import { writable } from 'svelte/store';
   import { fade, fly } from 'svelte/transition';
-  import './drawer.style.css';
+  import { isDrawerOpen } from './store';
 
   export let onClose: () => void;
   export let isOpen: boolean;
-  export let header = '';
-
-  export const isDrawerOpen = writable(false);
+  export let title = '';
 
   $: isDrawerOpen.set(isOpen);
   $: if (browser) document.body.classList.toggle('no-scroll', isOpen);
@@ -23,18 +20,18 @@
   />
 
   <div class="drawer" transition:fly={{ duration: 400, x: 400 }}>
-    <div class="header">
-      <h2>{header}</h2>
-      <button
-        on:click={onClose}
-        aria-label="close"
-        class="close-button"
-        id="close-button"
-      >
-        <i class="fas fa-times" />
+    <div class="font-bold flex justify-between items-center">
+      <h2>{title}</h2>
+      <button on:click={onClose} aria-label="close" class="text-3xl">
+        &times;
       </button>
     </div>
-    <slot />
+    <div class="overflow-auto">
+      <slot name="content" />
+    </div>
+    <div class="flex gap-2 items-center justify-end pr-5">
+      <slot name="footer" />
+    </div>
   </div>
 {/if}
 
@@ -48,36 +45,19 @@
     z-index: 1000;
 
     opacity: 0.8;
-    background-color: var(--gray-900);
+    @apply bg-gray-900;
   }
   .drawer {
     display: grid;
-    grid-template-rows: 60px 1fr 60px;
+    grid-template-rows: 60px 1fr auto;
     height: 100%; /* 100% Full-height */
     width: 100%;
+    padding: 1rem;
     max-width: 600px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1010; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-
-    background-color: var(--sky-800);
-    color: var(--gray-50);
-  }
-  .header {
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .close-button {
-    border: 0;
-    color: white;
-    padding: 5px 10px;
-    font-size: 1.3rem;
-    background-color: var(--sky-500);
+    @apply bg-slate-700 text-slate-50;
   }
 </style>

@@ -10,6 +10,7 @@ export enum ToastType {
   INFO = 'INFO',
   SUCCESS = 'SUCCESS',
   ERROR = 'ERROR',
+  WARNING = 'WARNING',
 }
 
 export const notifications = writable<Toast[]>([]);
@@ -20,7 +21,7 @@ export const toast = (
   timeout = 2000
 ): void => {
   notifications.update((state) => {
-    return [...state, { id: crypto.randomUUID(), type, message }];
+    return [...state, { id: crypto.randomUUID(), message, type }];
   });
   setTimeout(() => {
     notifications.update((state) => {
@@ -32,6 +33,6 @@ export const toast = (
 export const toastSave = (): void =>
   toast('common.saved', ToastType.SUCCESS, 2000);
 export const toastDelete = (): void =>
-  toast('common.deleted', ToastType.SUCCESS, 2000);
+  toast('common.deleted', ToastType.WARNING, 2000);
 export const toastError = (): void =>
-  toast('errors.something-went-wrong', ToastType.ERROR, 2000);
+  toast('common.error', ToastType.ERROR, 2000);
