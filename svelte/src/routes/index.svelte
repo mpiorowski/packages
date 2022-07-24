@@ -2,8 +2,8 @@
 	import Input from '../lib/input.svelte';
 </script>
 
-<h1>Input</h1>
 <div class="container">
+	<h1>Input</h1>
 	<Input value="" label="input" />
 </div>
 

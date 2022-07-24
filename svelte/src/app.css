@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
 	--text: var(--gray-50);
 
@@ -40,84 +44,19 @@
 	--slate-700: #334155;
 	--slate-800: #1e293b;
 	--slate-900: #0f172a;
+}
 
-	--ring: rgb(255, 255, 255) 0px 0px 0px 0px, var(--slate-400) 0px 0px 0px 2px,
-		rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+*,
+*:before,
+*:after {
+	outline: none;
 }
 
 body {
 	margin: 0;
 	padding: 0;
+	color: var(--text);
 	font-family: sans-serif;
 	font-size: 16px;
-	color: #333;
 	background: var(--slate-800);
-}
-
-.transition {
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke,
-		opacity, box-shadow, transform, filter, backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-}
-
-.shadow {
-	--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-	--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-		var(--tw-shadow);
-}
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-	margin: 0;
-}
-
-*,
-::before,
-::after {
-	box-sizing: border-box;
-	border-width: 0;
-	border-style: solid;
-	border-color: theme('borderColor.DEFAULT', currentColor);
-	outline: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-size: inherit;
-	font-weight: inherit;
-}
-
-ol,
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-	display: block;
 }
