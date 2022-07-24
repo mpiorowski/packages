@@ -21,11 +21,12 @@
   "scripts": {
     "test": "exit 0",
     "lint": "eslint --ext .ts,.tsx . --max-warnings 0 && tsc --noEmit ",
-    "package": "rollup -c rollup.config.js && cp package.json package/package.json"
+    "package": "rollup -c rollup.config.js && cp package.json package/package.json && cp tsconfig.json package/tsconfig.json"
   },
   "exports": {
     ".": "./index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./tsconfig.json": "./tsconfig.json"
   },
   "dependencies": {
     "@types/node": "^17.0.40",
