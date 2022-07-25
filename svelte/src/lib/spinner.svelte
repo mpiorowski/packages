@@ -1,5 +1,9 @@
+<script lang="ts">
+  export let size = 5;
+</script>
+
 <svg
-  class="animate-spin -ml-1 mr-3 w-full h-full m-auto text-white"
+  class={`animate-spin -ml-1 mr-3 w-${size} h-${size} m-auto text-white`}
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 24 24"

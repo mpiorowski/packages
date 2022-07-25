@@ -41,9 +41,7 @@
   <h1>Input Number</h1>
   <InputNumber value="" label="Input number" />
   <h1>Spinner</h1>
-  <div class="h-10 w-10">
-    <Spinner />
-  </div>
+  <Spinner size={10} />
   <h1>Drawer</h1>
   <Button on:click={() => isDrawerOpen.set(true)}>Open drawer</Button>
   <h1>Pagination</h1>
