@@ -41,14 +41,16 @@
   <h1>Input Number</h1>
   <InputNumber value="" label="Input number" />
   <h1>Spinner</h1>
-  <Spinner />
+  <div class="h-10 w-10">
+    <Spinner />
+  </div>
   <h1>Drawer</h1>
   <Button on:click={() => isDrawerOpen.set(true)}>Open drawer</Button>
   <h1>Pagination</h1>
   <Pagination paginationData={$paginationData} {actions} />
   <h1>Toast</h1>
   <div class="flex gap-4 ">
-    <Button on:click={toastSave}>Toast save</Button>
+    <Button submitting on:click={toastSave}>Toast save</Button>
     <Button on:click={toastError}>Toast error</Button>
     <Button on:click={toastDelete}>Toast delete</Button>
   </div>

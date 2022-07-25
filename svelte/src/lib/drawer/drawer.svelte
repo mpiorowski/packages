@@ -20,17 +20,17 @@
   />
 
   <div class="drawer" transition:fly={{ duration: 400, x: 400 }}>
-    <div class="font-bold flex justify-between items-center">
+    <div class="drawer-header">
       <h2>{title}</h2>
-      <button on:click={onClose} aria-label="close" class="text-3xl">
+      <button on:click={onClose} aria-label="close" class="close-btn">
         &times;
       </button>
     </div>
-    <div class="overflow-auto">
+    <div class="drawer-content">
       <slot name="content" />
     </div>
-    <div class="flex gap-2 items-center justify-end pr-5">
-      <slot name="footer" />
+    <div class="drawer-footer">
+      <slot name="ooter" />
     </div>
   </div>
 {/if}
@@ -59,5 +59,17 @@
     top: 0; /* Stay at the top */
     right: 0;
     @apply bg-slate-700 text-slate-50;
+  }
+  .drawer-header {
+    @apply font-bold flex justify-between items-center;
+  }
+  .drawer-content {
+    @apply overflow-auto;
+  }
+  .drawer-footer {
+    @apply flex gap-2 items-center justify-end pr-5;
+  }
+  .close-btn {
+    @apply text-3xl;
   }
 </style>
