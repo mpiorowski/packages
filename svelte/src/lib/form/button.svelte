@@ -13,12 +13,11 @@
   {form}
   on:click
   {type}
-  class={'transition h-9 focus:outline-none focus:ring-2 font-bold rounded-lg text-sm px-4 py-2 text-center inline-flex items-center justify-center ' +
-    style}
+  class={['button', style].join(' ')}
   disabled={submitting || disabled}
 >
   {#if submitting}
-    <div class="h-5 w-5 mr-2">
+    <div class="spinner">
       <Spinner />
     </div>
   {/if}
@@ -26,6 +25,15 @@
 </button>
 
 <style>
+  .button {
+    @apply transition h-9 font-bold rounded-lg text-sm px-4 py-2 text-center inline-flex items-center justify-center;
+  }
+  .button:focus {
+    @apply ring-2;
+  }
+  .spinner {
+    @apply h-5 w-5 mr-2;
+  }
   button {
     @apply text-gray-100;
   }

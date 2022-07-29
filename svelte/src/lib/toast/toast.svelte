@@ -19,13 +19,15 @@
         easing: backOut,
       }}
       out:fade={{ duration: 1000 }}
-      class={'mb-3 rounded w-fit m-auto shadow-md text-gray-100 ' +
-        (notification.type === ToastType.SUCCESS ? 'bg-green-700' : '') +
-        (notification.type === ToastType.ERROR ? 'bg-red-700' : '') +
-        (notification.type === ToastType.INFO ? 'bg-blue-700' : '') +
-        (notification.type === ToastType.WARNING ? 'bg-orange-600' : '')}
+      class={[
+        'toast',
+        notification.type === ToastType.SUCCESS && 'green',
+        notification.type === ToastType.ERROR && 'red',
+        notification.type === ToastType.INFO && 'blue',
+        notification.type === ToastType.WARNING && 'orange',
+      ].join(' ')}
     >
-      <div class="px-8 py-3 block font-normal text-lg">
+      <div class="toast-text">
         {#if notification.message === 'common.saved'}
           {saveMsg}
         {:else if notification.message === 'common.error'}
@@ -54,5 +56,23 @@
     align-items: center;
     pointer-events: none;
     z-index: 9999;
+  }
+  .toast {
+    @apply mb-3 rounded w-fit m-auto shadow-md text-gray-100;
+  }
+  .toast-text {
+    @apply px-8 py-3 block font-normal text-lg;
+  }
+  .green {
+    @apply bg-green-700;
+  }
+  .red {
+    @apply bg-red-700;
+  }
+  .blue {
+    @apply bg-blue-700;
+  }
+  .orange {
+    @apply bg-orange-600;
   }
 </style>

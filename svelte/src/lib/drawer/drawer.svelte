@@ -30,7 +30,7 @@
       <slot name="content" />
     </div>
     <div class="drawer-footer">
-      <slot name="ooter" />
+      <slot name="footer" />
     </div>
   </div>
 {/if}

@@ -3,9 +3,9 @@
   import './table.css';
 </script>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg" in:fade>
-  <table class="w-full text-sm text-left text-gray-200">
-    <thead class="text-xs uppercase bg-slate-800 text-slate-300">
+<div class="table-container" in:fade>
+  <table class="table">
+    <thead class="table-head">
       <slot name="head" />
     </thead>
     <tbody>
@@ -13,3 +13,15 @@
     </tbody>
   </table>
 </div>
+
+<style>
+  .table-container {
+    @apply relative overflow-x-auto shadow-md rounded-lg;
+  }
+  .table {
+    @apply w-full text-sm text-left text-gray-200;
+  }
+  .table-head {
+    @apply text-xs uppercase bg-slate-700 text-slate-300;
+  }
+</style>
