@@ -1,28 +1,16 @@
 name: Release utils package
 
-# on:
-#   release:
-#     types: [created]
-
 on:
   push:
     tags:
       - 'utils*'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci --prefix ./utils
-      - run: npm test --prefix ./utils
-      - run: npm run --prefix ./utils lint
+  lint:
+    uses: ./.github/workflows/lint.yml
 
   publish-gpr:
-    needs: build
+    needs: lint
     runs-on: ubuntu-latest
     permissions:
       packages: write

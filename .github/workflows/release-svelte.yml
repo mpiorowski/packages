@@ -6,8 +6,10 @@ on:
       - 'svelte*'
 
 jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
   publish:
-    needs: build
+    needs: lint
     runs-on: ubuntu-latest
     permissions:
       packages: write
