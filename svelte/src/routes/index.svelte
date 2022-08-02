@@ -121,7 +121,7 @@
   <h1>Dropdown</h1>
   <Dropdown name="Dropdown">
     <div>
-      <p>This is a dropdown component.</p>
+      <p>Is sadasd asdasd asasda d dasd asdd dsad</p>
     </div>
   </Dropdown>
 

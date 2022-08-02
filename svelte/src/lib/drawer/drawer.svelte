@@ -52,7 +52,6 @@
     grid-template-rows: 60px 1fr auto;
     height: 100%; /* 100% Full-height */
     width: 100%;
-    padding: 1rem;
     max-width: 600px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1010; /* Stay on top */
@@ -61,13 +60,13 @@
     @apply bg-slate-700 text-slate-50;
   }
   .drawer-header {
-    @apply font-bold flex justify-between items-center;
+    @apply font-bold flex justify-between items-center p-4;
   }
   .drawer-content {
-    @apply overflow-auto;
+    @apply overflow-auto p-4;
   }
   .drawer-footer {
-    @apply flex gap-2 items-center justify-end pr-5;
+    @apply flex gap-2 items-center justify-end p-4;
   }
   .close-btn {
     @apply text-3xl;
