@@ -24,3 +24,4 @@ export {
   ToastType,
 } from './toast/toast.helper';
 export { default as Toast } from './toast/toast.svelte';
+export { useAccordion } from './useAccordion';

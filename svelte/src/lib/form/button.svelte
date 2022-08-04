@@ -26,7 +26,7 @@
 
 <style>
   .button {
-    @apply transition h-9 font-bold rounded-lg text-sm px-4 py-2 text-center inline-flex items-center justify-center;
+    @apply transition h-9 font-bold rounded-lg text-sm px-4 py-2 text-center inline-flex items-center justify-center w-full;
   }
   .button:focus {
     @apply ring-2;

@@ -19,7 +19,7 @@
 
 <style>
   input {
-    @apply border-slate-600 text-gray-50  bg-slate-600 transition shadow-sm block px-3.5 py-1.5 text-sm rounded-md border;
+    @apply border-slate-600 text-gray-50  bg-slate-600 transition shadow-sm block px-3.5 py-1.5 text-sm rounded-md border w-full;
   }
   input:focus {
     @apply ring-2 ring-slate-400;
