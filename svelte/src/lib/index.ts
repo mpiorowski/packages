@@ -2,6 +2,7 @@ export { clickOutside } from './clickOutside';
 export { default as Drawer } from './drawer/drawer.svelte';
 export { isDrawerOpen } from './drawer/drawer.util';
 export { default as Dropdown } from './dropdown.svelte';
+export { default as DropdownBtn } from './dropdownBtn.svelte';
 export { default as Button } from './form/button.svelte';
 export { default as Checkbox } from './form/checkbox.svelte';
 export { default as CheckboxGroup } from './form/checkboxGroup.svelte';
@@ -24,4 +25,5 @@ export {
   ToastType,
 } from './toast/toast.helper';
 export { default as Toast } from './toast/toast.svelte';
+export { default as Tooltip } from './tooltip.svelte';
 export { useAccordion } from './useAccordion';

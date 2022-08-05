@@ -1,27 +1,28 @@
 <script lang="ts">
   import {
     Button,
+    Checkbox,
+    CheckboxGroup,
     Drawer,
+    Dropdown,
+    DropdownBtn,
     Input,
     InputSimple,
     isDrawerOpen,
     Pagination,
+    Radio,
+    Select,
     Spinner,
+    Table,
     Textarea,
-    usePagination,
-  } from '../lib';
-  import Dropdown from '../lib/dropdown.svelte';
-  import Checkbox from '../lib/form/checkbox.svelte';
-  import CheckboxGroup from '../lib/form/checkboxGroup.svelte';
-  import Radio from '../lib/form/radio.svelte';
-  import Select from '../lib/form/select.svelte';
-  import Table from '../lib/table/table.svelte';
-  import {
+    Toast,
     toastDelete,
     toastError,
     toastSave,
-  } from '../lib/toast/toast.helper';
-  import Toast from '../lib/toast/toast.svelte';
+    Tooltip,
+    usePagination,
+  } from '../lib';
+  import Avatar from './avatar.svelte';
 
   const { actions, paginationData } = usePagination();
   paginationData.set({ pageNumber: 1, pageCount: 10 });
@@ -81,9 +82,7 @@
       { value: 'val1', description: 'desc1' },
       { value: 'val2', description: 'desc2' },
     ]}
-  >
-    Checkbox
-  </CheckboxGroup>
+  />
 
   <h1>Radio</h1>
   <Radio
@@ -119,11 +118,42 @@
   </div>
 
   <h1>Dropdown</h1>
-  <Dropdown name="Dropdown">
+  <div class="flex ml-auto">
+    <Dropdown>
+      <svelte:fragment slot="button">
+        <div class="w-8">
+          <Avatar />
+        </div>
+      </svelte:fragment>
+      <svelte:fragment slot="content">
+        <div class="p-2">
+          <p>mateuszpiorowski@gmail.com</p>
+        </div>
+      </svelte:fragment>
+    </Dropdown>
+  </div>
+
+  <h1>Dropdown with button</h1>
+  <DropdownBtn name="Dropdown">
     <div>
       <p>Is sadasd asdasd asasda d dasd asdd dsad</p>
     </div>
-  </Dropdown>
+  </DropdownBtn>
+
+  <h1>Tooltip</h1>
+  <div class="flex gap-2">
+    <Tooltip tooltip={'tooltip right'} move={0.5} position={'right'}>
+      <div class="border border-gray-600 rounded p-2 bg-gray-600">
+        Tooltip right
+      </div>
+    </Tooltip>
+
+    <Tooltip tooltip={'tooltip top'} position={'top'} move={0.2}>
+      <div class="w-fit border border-gray-600 rounded p-2 bg-gray-600">
+        Tooltip top
+      </div>
+    </Tooltip>
+  </div>
 
   <h1>Table</h1>
   <Table>
