@@ -149,9 +149,7 @@
     </Tooltip>
 
     <Tooltip tooltip={'tooltip top'} position={'top'} move={0.2}>
-      <div class="w-fit border border-gray-600 rounded p-2 bg-gray-600">
-        Tooltip top
-      </div>
+      <div class="w-fit border border-gray-600 rounded p-2 bg-gray-600">ww</div>
     </Tooltip>
   </div>
 

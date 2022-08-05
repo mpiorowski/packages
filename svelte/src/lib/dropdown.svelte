@@ -22,6 +22,7 @@
     position: relative;
   }
   .dropdown-btn:hover {
+    transition: all 0.2s ease-in-out;
     opacity: 0.5;
     cursor: pointer;
   }

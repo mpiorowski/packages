@@ -24,18 +24,19 @@
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: 0.2s ease-out;
+    transition: all 0.2s ease-in-out;
     /* transform: translate(-50%, 5px); */
   }
 
   [data-tooltip]::before {
     z-index: 100;
     position: absolute;
-    width: 100%;
+    width: fit-content;
+    white-space: nowrap;
 
     content: attr(data-tooltip);
     text-align: center;
-    transition: 0.2s ease-out;
+    transition: all 0.2s ease-in-out;
 
     @apply bg-gray-200 text-gray-800 rounded-lg font-normal px-2 py-1 mb-1 text-sm;
   }
