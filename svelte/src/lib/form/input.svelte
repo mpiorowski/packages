@@ -6,6 +6,7 @@
     'text';
   export let required = false;
   export let disabled = false;
+  export let name = '';
 
   export let maxlength: number | undefined = undefined;
 
@@ -20,6 +21,7 @@
   <input
     use:typeAction
     bind:value
+    {name}
     {disabled}
     {maxlength}
     class={`${error && 'input-error'} ${disabled && 'input-disabled'}`}

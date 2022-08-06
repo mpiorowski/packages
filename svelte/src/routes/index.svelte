@@ -52,7 +52,7 @@
 
 <div class="container">
   <h1>Inputs</h1>
-  <Input bind:value={input} label="Input" />
+  <Input bind:value={input} label="Input" name="email" />
   <Input bind:value={input} label="Input disabled" disabled />
   <Input bind:value={input} label="Input error" error="This is an error" />
   <InputSimple placeholder="Input simple" bind:value={input} />
