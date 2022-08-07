@@ -1,12 +1,12 @@
 import { writable } from 'svelte/store';
 
-export const paginationData = writable({ pageNumber: 1, pageCount: 0 });
+export const pagination = writable({ pageNumber: 1, pageCount: 0 });
 
 export const usePagination = () => {
   const pageSize = 10;
 
   const increment = () => {
-    paginationData.update((data) => {
+    pagination.update((data) => {
       const newPage = data.pageNumber + 1;
       if (newPage <= data.pageCount) {
         return { ...data, pageNumber: newPage };
@@ -15,7 +15,7 @@ export const usePagination = () => {
     });
   };
   const decrement = () => {
-    paginationData.update((data) => {
+    pagination.update((data) => {
       const newPage = data.pageNumber - 1;
       if (newPage > 0) {
         return { ...data, pageNumber: newPage };
@@ -25,10 +25,10 @@ export const usePagination = () => {
   };
 
   const changePage = (index: number) =>
-    paginationData.update((data) => ({ ...data, pageNumber: index }));
+    pagination.update((data) => ({ ...data, pageNumber: index }));
 
   const calcPageCount = (dataCount: number) => {
-    paginationData.update((data) => {
+    pagination.update((data) => {
       return { ...data, pageCount: Math.floor(dataCount / pageSize) };
     });
   };
@@ -39,7 +39,7 @@ export const usePagination = () => {
 
   return {
     paginate,
-    paginationData,
+    pagination,
     pageSize,
     calcPageCount,
     actions: {

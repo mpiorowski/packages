@@ -1,13 +1,11 @@
 <script lang="ts">
   import { browser } from '$app/env';
   import { fade, fly } from 'svelte/transition';
-  import { isDrawerOpen } from './drawer.util';
 
   export let onClose: () => void;
   export let isOpen: boolean;
   export let title = '';
 
-  $: isDrawerOpen.set(isOpen);
   $: if (browser) document.body.classList.toggle('no-scroll', isOpen);
 </script>
 
@@ -43,9 +41,7 @@
     width: 100%;
     height: 100%;
     z-index: 1000;
-
-    opacity: 0.8;
-    @apply bg-gray-900;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   .drawer {
     display: grid;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let paginationData: { pageNumber: number; pageCount: number };
+  export let pagination: { pageNumber: number; pageCount: number };
   export let actions: {
     increment: () => void;
     decrement: () => void;
@@ -12,13 +12,13 @@
     <li on:click={actions.decrement}>
       <span class="previous">&lt;</span>
     </li>
-    {#each Array(paginationData.pageCount || 1) as _, i}
+    {#each Array(pagination.pageCount || 1) as _, i}
       <li on:click={() => actions.changePage(i + 1)}>
         <span
-          aria-current={paginationData.pageNumber === i + 1 ? 'page' : null}
+          aria-current={pagination.pageNumber === i + 1 ? 'page' : null}
           class={[
             'current',
-            paginationData.pageNumber === i + 1 ? 'active' : '',
+            pagination.pageNumber === i + 1 ? 'active' : '',
           ].join(' ')}
         >
           {i + 1}

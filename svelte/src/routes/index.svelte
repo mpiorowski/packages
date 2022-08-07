@@ -2,15 +2,13 @@
   import {
     Button,
     Checkbox,
-    CheckboxGroup,
     Drawer,
     Dropdown,
     DropdownBtn,
+    Group,
     Input,
     InputSimple,
-    isDrawerOpen,
     Pagination,
-    Radio,
     Select,
     Spinner,
     Table,
@@ -24,8 +22,10 @@
   } from '../lib';
   import Avatar from './avatar.svelte';
 
-  const { actions, paginationData } = usePagination();
-  paginationData.set({ pageNumber: 1, pageCount: 10 });
+  const { actions, pagination } = usePagination();
+  pagination.set({ pageNumber: 1, pageCount: 10 });
+
+  let isDrawerOpen = false;
 
   let checkbox = true;
   let checkboxGroup = ['val1', 'val2'];
@@ -38,21 +38,21 @@
 <Toast />
 
 <Drawer
-  isOpen={$isDrawerOpen}
-  onClose={() => isDrawerOpen.set(false)}
+  isOpen={isDrawerOpen}
+  onClose={() => (isDrawerOpen = false)}
   title="Drawer Title"
 >
   <svelte:fragment slot="content">
     <p>This is a drawer component.</p>
   </svelte:fragment>
   <svelte:fragment slot="footer">
-    <Button on:click={() => isDrawerOpen.set(false)}>Close</Button>
+    <Button on:click={() => (isDrawerOpen = false)} style="ghost">Close</Button>
   </svelte:fragment>
 </Drawer>
 
 <div class="container">
   <h1>Inputs</h1>
-  <Input bind:value={input} label="Input" name="email" />
+  <Input bind:value={input} label="Input" />
   <Input bind:value={input} label="Input disabled" disabled />
   <Input bind:value={input} label="Input error" error="This is an error" />
   <InputSimple placeholder="Input simple" bind:value={input} />
@@ -76,7 +76,8 @@
   <Checkbox bind:checked={checkbox}>Checkbox</Checkbox>
 
   <h1>CheckboxGroup</h1>
-  <CheckboxGroup
+  <Group
+    type="checkbox"
     bind:group={checkboxGroup}
     values={[
       { value: 'val1', description: 'desc1' },
@@ -85,19 +86,21 @@
   />
 
   <h1>Radio</h1>
-  <Radio
+  <Group
+    type="radio"
     bind:group={radio}
     values={[
-      { value: 'val1', description: 'desc1' },
-      { value: 'val2', description: 'desc2' },
+      { value: 'val3', description: 'desc1' },
+      { value: 'val4', description: 'desc2' },
     ]}
   />
 
   <h1>Buttons</h1>
   <div class="flex flex-row gap-4">
+    <Button>Primary</Button>
     <Button submitting>Submitting</Button>
     <Button disabled>Disabled</Button>
-    <Button style="red">Red</Button>
+    <Button style="error">Error</Button>
     <Button style="ghost">Ghost</Button>
   </div>
 
@@ -105,10 +108,10 @@
   <Spinner size={100} />
 
   <h1>Drawer</h1>
-  <Button on:click={() => isDrawerOpen.set(true)}>Open drawer</Button>
+  <Button on:click={() => (isDrawerOpen = true)}>Open drawer</Button>
 
   <h1>Pagination</h1>
-  <Pagination paginationData={$paginationData} {actions} />
+  <Pagination pagination={$pagination} {actions} />
 
   <h1>Toast</h1>
   <div class="flex gap-4 ">
