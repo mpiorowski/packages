@@ -19,12 +19,28 @@
 
 <style>
   input {
-    @apply border-slate-600 text-gray-50  bg-slate-600 transition shadow-sm block px-3.5 py-1.5 text-sm rounded-md border w-full;
+    display: block;
+    width: 100%;
+    height: 2.25rem;
+
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */;
+    font-weight: 500;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-radius: 0.5rem;
+    transition: all 0.1s ease-in-out;
+
+    background-color: var(--input-primary);
+    outline: 0px solid var(--input-primary);
+
+    box-shadow: var(--shadow);
   }
   input:focus {
-    @apply ring-2 ring-slate-400;
+    outline: 2px solid var(--input-focus);
   }
-  input::placeholder {
-    @apply text-gray-400;
+  input:disabled {
+    color: var(--input-disabled);
+    cursor: not-allowed;
   }
 </style>

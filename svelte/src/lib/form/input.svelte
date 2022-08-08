@@ -17,16 +17,9 @@
 
 <label class="input">
   {label}
-  {#if required}<span class="red">*</span>{/if}
-  <input
-    use:typeAction
-    bind:value
-    {name}
-    {disabled}
-    {maxlength}
-    class={`${error && 'input-error'} ${disabled && 'input-disabled'}`}
-  />
-  <p class="error">
+  {#if required}<span class="text-error">*</span>{/if}
+  <input use:typeAction bind:value {name} {disabled} {maxlength} class:error />
+  <p class="text-error">
     {#if error}
       {error}
     {/if}
@@ -35,34 +28,41 @@
 
 <style>
   .input {
-    @apply block text-sm font-medium w-full;
+    display: block;
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */;
+    font-weight: 500;
+    width: 100%;
   }
   input {
     display: block;
     width: 100%;
-    transition: all 0.2s ease-in-out;
     height: 2.25rem;
     margin-top: 0.25rem;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    @apply block w-full px-3.5 py-1.5 rounded-md border border-slate-600 text-gray-50  bg-slate-600;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-radius: 0.5rem;
+    transition: all 0.1s ease-in-out;
+
+    background-color: var(--input-primary);
+    outline: 0px solid var(--input-primary);
+
+    box-shadow: var(--shadow);
+  }
+  input.error {
+    outline: 2px solid var(--input-error);
   }
   input:focus {
-    /* box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); */
-    box-shadow: 0 0 0 2px rgb(148 163 184), 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    /* @apply ring-2 ring-slate-400; */
-    /* transition: outline 0.2s ease-in-out; */
-    /* @apply outline outline-2 outline-slate-400; */
+    outline: 2px solid var(--input-focus);
   }
-  .input-error {
-    @apply border-red-400 text-red-400;
+  input:disabled {
+    color: var(--input-disabled);
+    cursor: not-allowed;
   }
-  .input-disabled {
-    @apply bg-gray-700 cursor-not-allowed;
-  }
-  .red {
-    @apply text-red-600;
-  }
-  .error {
-    @apply mt-1 h-5 text-red-400 font-bold;
+  .text-error {
+    height: 1.25rem;
+    margin-top: 0.25rem;
+    font-weight: bold;
+    color: var(--input-error);
   }
 </style>

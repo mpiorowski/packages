@@ -1,8 +1,8 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import { clickOutside } from './clickOutside';
-  import CaretDown from './icon/caretDown.svelte';
-  import CarpetUp from './icon/carpetUp.svelte';
+  import { clickOutside } from '../clickOutside';
+  import CaretDown from '../icon/caretDown.svelte';
+  import CarpetUp from '../icon/carpetUp.svelte';
   export let name: string;
   let isOpen = false;
 </script>

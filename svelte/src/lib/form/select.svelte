@@ -8,11 +8,11 @@
 
 <label class="select">
   {label}
-  {#if required}<span class="red">*</span>{/if}
-  <select {disabled} bind:value class={error && 'select-error'}>
+  {#if required}<span class="text-error">*</span>{/if}
+  <select {disabled} bind:value class:error>
     <slot />
   </select>
-  <p class="error">
+  <p class="text-error">
     {#if error}
       {error}
     {/if}
@@ -21,21 +21,42 @@
 
 <style>
   .select {
-    @apply block text-sm font-medium w-full;
+    display: block;
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */;
+    font-weight: 500;
+    width: 100%;
   }
   select {
-    @apply transition mt-1 shadow-sm h-9 block w-full px-3.5 py-1.5 text-sm rounded-md border border-slate-700 text-gray-50 bg-slate-600;
+    display: block;
+    width: 100%;
+    transition: all 0.1s ease-in-out;
+
+    height: 2.25rem;
+    margin-top: 0.25rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-radius: 0.5rem;
+
+    background-color: var(--input-primary);
+    outline: 0px solid var(--input-primary);
+
+    box-shadow: var(--shadow);
+  }
+  select.error {
+    outline: 2px solid var(--input-error);
   }
   select:focus {
-    @apply ring-2 ring-slate-400;
+    outline: 2px solid var(--input-focus);
   }
-  .select-error {
-    @apply border-red-400 text-red-400;
+  select:disabled {
+    color: var(--input-disabled);
+    cursor: not-allowed;
   }
-  .red {
-    @apply text-red-600;
-  }
-  .error {
-    @apply mt-1 h-5 text-sm text-red-400 font-bold;
+  .text-error {
+    height: 1.25rem;
+    margin-top: 0.25rem;
+    font-weight: bold;
+    color: var(--input-error);
   }
 </style>

@@ -9,21 +9,40 @@
 }
 
 :root {
-  --primary: #52796f;
-  --primary-hover: #84a98c;
-  --primary-focus: #edf2f4;
-  --error: #d90429;
-  --error-hover: #ef233c;
-  --error-focus: #edf2f4;
-  --ghost: #2b2d42;
-  --ghost-hover: #8d99ae;
-  --ghost-focus: #edf2f4;
+  --btn-primary: #52796f;
+  --btn-primary-hover: #84a98c;
+  --btn-primary-focus: #edf2f4;
+  --btn-error: #d90429;
+  --btn-error-hover: #ef233c;
+  --btn-error-focus: #edf2f4;
+  --btn-ghost: #2b2d42;
+  --btn-ghost-hover: #8d99ae;
+  --btn-ghost-focus: #edf2f4;
 
   --accent: #52796f;
 
   --toast-success: #00b300;
   --toast-error: #d90429;
   --toast-warning: #ff9f1c;
+  --toast-info: #000fb3;
+
+  --drawer-background: #343637;
+  --dropdown-background: #343637;
+
+  --input-primary: #457b9d;
+  --input-focus: #a8dadc;
+  --input-disabled: #1d3557;
+  --input-error: #dc2f02;
+
+  --table-header: #1d3557;
+  --table-body: #363a63;
+
+  --shadow: 0 0 0 0px #fff, 0 0 0 0px #fff, 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 body {
@@ -38,19 +57,16 @@ h1 {
   font-size: 1.875rem /* 30px */;
   line-height: 2.25rem /* 36px */;
   font-weight: 700;
-  @apply text-gray-200;
 }
 
 h2 {
   font-size: 1.5rem /* 24px */;
   line-height: 2rem /* 32px */;
   font-weight: 700;
-  @apply text-gray-200;
 }
 
 h3 {
   font-size: 1.25rem /* 20px */;
   line-height: 1.75rem /* 28px */;
   font-weight: 700;
-  @apply text-gray-200;
 }

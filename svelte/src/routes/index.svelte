@@ -8,7 +8,6 @@
     Group,
     Input,
     InputSimple,
-    Pagination,
     Select,
     Spinner,
     Table,
@@ -16,14 +15,16 @@
     Toast,
     toastDelete,
     toastError,
+    toastInfo,
     toastSave,
     Tooltip,
-    usePagination,
   } from '../lib';
+  import InputNumber from '../lib/form/inputNumber.svelte';
+
   import Avatar from './avatar.svelte';
 
-  const { actions, pagination } = usePagination();
-  pagination.set({ pageNumber: 1, pageCount: 10 });
+  // const { actions, pagination } = usePagination();
+  // pagination.set({ pageNumber: 1, pageCount: 10 });
 
   let isDrawerOpen = false;
 
@@ -32,6 +33,7 @@
   let radio = 'val1';
   let select = 'val1';
   let input = '';
+  let inputNumber = 1;
   let textarea = '';
 </script>
 
@@ -43,7 +45,10 @@
   title="Drawer Title"
 >
   <svelte:fragment slot="content">
-    <p>This is a drawer component.</p>
+    {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as number}
+      <p>This is a drawer component.</p>
+      <div>{number}</div>
+    {/each}
   </svelte:fragment>
   <svelte:fragment slot="footer">
     <Button on:click={() => (isDrawerOpen = false)} style="ghost">Close</Button>
@@ -55,6 +60,7 @@
   <Input bind:value={input} label="Input" />
   <Input bind:value={input} label="Input disabled" disabled />
   <Input bind:value={input} label="Input error" error="This is an error" />
+  <InputNumber bind:value={inputNumber} label="Input number" />
   <InputSimple placeholder="Input simple" bind:value={input} />
 
   <h1>Select</h1>
@@ -109,15 +115,16 @@
 
   <h1>Drawer</h1>
   <Button on:click={() => (isDrawerOpen = true)}>Open drawer</Button>
-
+  <!-- 
   <h1>Pagination</h1>
-  <Pagination pagination={$pagination} {actions} />
+  <Pagination pagination={$pagination} {actions} /> -->
 
   <h1>Toast</h1>
   <div class="flex gap-4 ">
     <Button on:click={toastSave}>Toast save</Button>
     <Button on:click={toastError}>Toast error</Button>
     <Button on:click={toastDelete}>Toast delete</Button>
+    <Button on:click={toastInfo}>Toast info</Button>
   </div>
 
   <h1>Dropdown</h1>

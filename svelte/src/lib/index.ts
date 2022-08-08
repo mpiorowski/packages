@@ -1,7 +1,7 @@
 export { clickOutside } from './clickOutside';
 export { default as Drawer } from './drawer/drawer.svelte';
-export { default as Dropdown } from './dropdown.svelte';
-export { default as DropdownBtn } from './dropdownBtn.svelte';
+export { default as Dropdown } from './dropdown/dropdown.svelte';
+export { default as DropdownBtn } from './dropdown/dropdownBtn.svelte';
 export { default as Button } from './form/button.svelte';
 export { default as Checkbox } from './form/checkbox.svelte';
 export { default as Group } from './form/group.svelte';
@@ -10,7 +10,7 @@ export { default as InputNumber } from './form/inputNumber.svelte';
 export { default as InputSimple } from './form/inputSimple.svelte';
 export { default as Select } from './form/select.svelte';
 export { default as Textarea } from './form/textarea.svelte';
-export { default as Pagination } from './pagination/pagination.svelte';
+// export { default as Pagination } from './pagination/pagination.svelte';
 export { usePagination } from './pagination/pagination.util';
 export { default as Spinner } from './spinner.svelte';
 export { default as Table } from './table/table.svelte';
@@ -19,6 +19,7 @@ export {
   toast,
   toastDelete,
   toastError,
+  toastInfo,
   toastSave,
   ToastType,
 } from './toast/toast.helper';

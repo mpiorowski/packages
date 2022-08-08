@@ -1,7 +1,7 @@
 <script lang="ts">
   import { backOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
-  import { notifications, ToastType } from './toast.helper';
+  import { notifications } from './toast.helper';
   export let saveMsg = 'Saved';
   export let errorMsg = 'Error';
   export let deleteMsg = 'Deleted';
@@ -19,13 +19,7 @@
         easing: backOut,
       }}
       out:fade={{ duration: 1000 }}
-      class={[
-        'toast',
-        notification.type === ToastType.SUCCESS && 'green',
-        notification.type === ToastType.ERROR && 'red',
-        notification.type === ToastType.INFO && 'blue',
-        notification.type === ToastType.WARNING && 'orange',
-      ].join(' ')}
+      class={['toast', notification.type].join(' ')}
     >
       <div class="toast-text">
         {#if notification.message === 'common.saved'}
@@ -55,24 +49,32 @@
     text-align: center;
     align-items: center;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 999;
   }
   .toast {
-    @apply mb-3 rounded w-fit m-auto shadow-md text-gray-100;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow);
   }
   .toast-text {
-    @apply px-8 py-3 block font-normal text-lg;
+    display: block;
+    font-weight: bold;
+    font-size: 1.125rem /* 18px */;
+    line-height: 1.75rem /* 28px */;
+    padding: 0.75rem 2rem;
   }
-  .green {
-    @apply bg-green-700;
+  .success {
+    background-color: var(--toast-success);
   }
-  .red {
-    @apply bg-red-700;
+  .error {
+    background-color: var(--toast-error);
   }
-  .blue {
-    @apply bg-blue-700;
+  .info {
+    background-color: var(--toast-info);
   }
-  .orange {
-    @apply bg-orange-600;
+  .warning {
+    background-color: var(--toast-warning);
   }
 </style>

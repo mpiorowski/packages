@@ -53,18 +53,31 @@
     z-index: 1010; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    @apply bg-slate-700 text-slate-50;
+
+    background-color: var(--drawer-background);
   }
   .drawer-header {
-    @apply font-bold flex justify-between items-center p-4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-weight: bold;
   }
   .drawer-content {
-    @apply overflow-auto p-4;
+    overflow: auto;
+    padding: 1rem;
   }
   .drawer-footer {
-    @apply flex gap-2 items-center justify-end p-4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 0.5rem;
+    padding: 1rem;
   }
   .close-btn {
-    @apply text-3xl;
+    font-weight: bold;
+    font-size: 1.875rem /* 30px */;
+    line-height: 2.25rem /* 36px */;
   }
 </style>

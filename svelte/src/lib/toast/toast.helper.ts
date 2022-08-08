@@ -7,10 +7,10 @@ type Toast = {
 };
 
 export enum ToastType {
-  INFO = 'INFO',
-  SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR',
-  WARNING = 'WARNING',
+  INFO = 'info',
+  SUCCESS = 'success',
+  ERROR = 'error',
+  WARNING = 'warning',
 }
 
 export const notifications = writable<Toast[]>([]);
@@ -36,3 +36,5 @@ export const toastDelete = (): void =>
   toast('common.deleted', ToastType.WARNING, 2000);
 export const toastError = (): void =>
   toast('common.error', ToastType.ERROR, 2000);
+export const toastInfo = (): void =>
+  toast('common.error', ToastType.INFO, 2000);

@@ -32,14 +32,16 @@
     width: 100%;
     height: 2.25rem;
 
-    transition: all 0.2s ease-in-out;
     user-select: none;
     font-weight: bold;
     border-radius: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
 
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.1s ease-in-out;
+
+    outline: 0px solid var(--btn-primary);
+    box-shadow: var(--shadow);
   }
   .spinner {
     height: 1.25rem;
@@ -47,32 +49,32 @@
     margin-right: 0.5rem;
   }
   button.primary {
-    background-color: var(--primary);
+    background-color: var(--btn-primary);
   }
   button.primary:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--btn-primary-hover);
   }
   button.primary:focus {
-    box-shadow: 0 0 0 2px var(--primary-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    outline: 2px solid var(--btn-primary-focus);
   }
 
   button.error {
-    background-color: var(--error);
+    background-color: var(--btn-error);
   }
   button.error:hover {
-    background-color: var(--error-hover);
+    background-color: var(--btn-error-hover);
   }
   button.error:focus {
-    box-shadow: 0 0 0 2px var(--error-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    box-shadow: 0 0 0 2px var(--btn-error-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 
   button.ghost {
-    background-color: var(--ghost);
+    background-color: var(--btn-ghost);
   }
   button.ghost:hover {
-    background-color: var(--ghost-hover);
+    background-color: var(--btn-ghost-hover);
   }
   button.ghost:focus {
-    box-shadow: 0 0 0 2px var(--ghost-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    box-shadow: 0 0 0 2px var(--btn-ghost-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 </style>
