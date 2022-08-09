@@ -124,15 +124,15 @@
   </div>
 
   <h1>Dropdown</h1>
-  <div class="flex-gap">
+  <div class="flex-gap" style="margin-left: auto">
     <Dropdown>
       <svelte:fragment slot="button">
-        <div class="w-8">
+        <div style="width: 3rem">
           <Avatar />
         </div>
       </svelte:fragment>
       <svelte:fragment slot="content">
-        <div class="p-2">
+        <div style="padding: 0.5rem; background-color: gray">
           <p>mateuszpiorowski@gmail.com</p>
         </div>
       </svelte:fragment>
