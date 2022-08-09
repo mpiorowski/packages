@@ -30,13 +30,18 @@
     justify-content: center;
     align-items: center;
   }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
   svg {
-    @apply animate-spin text-white;
+    animation: spin 1s linear infinite;
   }
   circle {
-    @apply opacity-25;
+    opacity: 0.25;
   }
   path {
-    @apply opacity-75;
+    opacity: 0.75;
   }
 </style>

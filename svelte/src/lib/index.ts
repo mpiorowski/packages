@@ -10,8 +10,6 @@ export { default as InputNumber } from './form/inputNumber.svelte';
 export { default as InputSimple } from './form/inputSimple.svelte';
 export { default as Select } from './form/select.svelte';
 export { default as Textarea } from './form/textarea.svelte';
-// export { default as Pagination } from './pagination/pagination.svelte';
-export { usePagination } from './pagination/pagination.util';
 export { default as Spinner } from './spinner.svelte';
 export { default as Table } from './table/table.svelte';
 export {
@@ -26,3 +24,5 @@ export {
 export { default as Toast } from './toast/toast.svelte';
 export { default as Tooltip } from './tooltip.svelte';
 export { useAccordion } from './useAccordion';
+export { usePagination } from './usePagination';
+// export { default as Pagination } from './pagination/pagination.svelte';

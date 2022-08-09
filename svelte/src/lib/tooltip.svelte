@@ -1,6 +1,6 @@
 <script lang="ts">
   export let tooltip: boolean | string = false; // prevent blank tooltips
-  export let position: 'top' | 'right' = 'top';
+  export let position: 'top' | 'bottom' | 'right' | 'left' = 'top';
   export let move = 0;
 </script>
 
@@ -25,20 +25,23 @@
     opacity: 0;
     pointer-events: none;
     transition: all 0.2s ease-in-out;
-    /* transform: translate(-50%, 5px); */
   }
 
   [data-tooltip]::before {
+    content: attr(data-tooltip);
+
     z-index: 100;
     position: absolute;
     width: fit-content;
     white-space: nowrap;
-
-    content: attr(data-tooltip);
     text-align: center;
-    transition: all 0.2s ease-in-out;
+    border-radius: 0.5rem;
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */;
+    padding: 0.25rem 0.5rem;
 
-    @apply bg-gray-200 text-gray-800 rounded-lg font-normal px-2 py-1 mb-1 text-sm;
+    background-color: var(--tooltip-background);
+    color: var(--tooltip-text);
   }
 
   /* TODO - add arrow */
@@ -74,8 +77,19 @@
     transform: translateX(-50%);
     bottom: calc(100% + var(--tooltip-move));
   }
+  .bottom::before {
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + var(--tooltip-move));
+  }
   .right::before {
-    top: auto;
+    top: 50%;
+    transform: translateY(-50%);
     left: calc(100% + var(--tooltip-move));
+  }
+  .left::before {
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(100% + var(--tooltip-move));
   }
 </style>

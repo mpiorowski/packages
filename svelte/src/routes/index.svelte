@@ -20,11 +20,7 @@
     Tooltip,
   } from '../lib';
   import InputNumber from '../lib/form/inputNumber.svelte';
-
   import Avatar from './avatar.svelte';
-
-  // const { actions, pagination } = usePagination();
-  // pagination.set({ pageNumber: 1, pageCount: 10 });
 
   let isDrawerOpen = false;
 
@@ -102,7 +98,7 @@
   />
 
   <h1>Buttons</h1>
-  <div class="flex flex-row gap-4">
+  <div class="flex-gap">
     <Button>Primary</Button>
     <Button submitting>Submitting</Button>
     <Button disabled>Disabled</Button>
@@ -120,7 +116,7 @@
   <Pagination pagination={$pagination} {actions} /> -->
 
   <h1>Toast</h1>
-  <div class="flex gap-4 ">
+  <div class="flex-gap">
     <Button on:click={toastSave}>Toast save</Button>
     <Button on:click={toastError}>Toast error</Button>
     <Button on:click={toastDelete}>Toast delete</Button>
@@ -128,7 +124,7 @@
   </div>
 
   <h1>Dropdown</h1>
-  <div class="flex ml-auto">
+  <div class="flex-gap">
     <Dropdown>
       <svelte:fragment slot="button">
         <div class="w-8">
@@ -151,15 +147,20 @@
   </DropdownBtn>
 
   <h1>Tooltip</h1>
-  <div class="flex gap-2">
-    <Tooltip tooltip={'tooltip right'} move={0.5} position={'right'}>
-      <div class="border border-gray-600 rounded p-2 bg-gray-600">
-        Tooltip right
-      </div>
+  <div class="flex-gap">
+    <Tooltip tooltip={'tooltip text'} position={'top'} move={0.2}>
+      <div class="tooltip-container">Top</div>
     </Tooltip>
 
-    <Tooltip tooltip={'tooltip top'} position={'top'} move={0.2}>
-      <div class="w-fit border border-gray-600 rounded p-2 bg-gray-600">ww</div>
+    <Tooltip tooltip={'tooltip text'} position={'bottom'} move={0.2}>
+      <div class="tooltip-container">Bottom</div>
+    </Tooltip>
+    <Tooltip tooltip={'tooltip text'} move={0.2} position={'right'}>
+      <div class="tooltip-container">Right</div>
+    </Tooltip>
+
+    <Tooltip tooltip={'tooltip text'} position={'left'} move={0.2}>
+      <div class="tooltip-container">Left</div>
     </Tooltip>
   </div>
 
@@ -193,5 +194,20 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+  .flex-gap {
+    display: flex;
+    gap: 10px;
+  }
+  .tooltip-container {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 2.5rem;
   }
 </style>

@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   export let pagination: { pageNumber: number; pageCount: number };
   export let actions: {
     increment: () => void;
@@ -59,4 +59,4 @@
   .active:hover {
     @apply bg-blue-100 text-blue-700;
   }
-</style>
+</style> -->
