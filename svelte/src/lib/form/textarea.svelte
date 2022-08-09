@@ -2,6 +2,7 @@
   export let label: string;
   export let value: unknown;
   export let error = '';
+  export let placeholder = '';
   export let required = false;
   export let disabled = false;
   export let rows = 3;
@@ -10,7 +11,7 @@
 <label for={label} class="textarea">
   {label}
   {#if required}<span class="text-error">*</span>{/if}
-  <textarea bind:value {rows} {disabled} class:error />
+  <textarea bind:value {rows} {disabled} {placeholder} class:error />
   <p class="text-error">
     {#if error}
       {error}
@@ -39,6 +40,12 @@
     outline: 0px solid var(--input-primary);
 
     box-shadow: var(--shadow);
+  }
+  textarea:disabled {
+    opacity: 0.5;
+  }
+  textarea::placeholder {
+    color: var(--input-placeholder);
   }
   textarea.error {
     outline: 2px solid var(--input-error);

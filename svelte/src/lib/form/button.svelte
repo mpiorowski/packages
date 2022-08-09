@@ -14,7 +14,8 @@
   on:click
   {type}
   class={style}
-  disabled={submitting || disabled}
+  disabled={disabled || submitting}
+  class:submitting
 >
   {#if submitting}
     <div class="spinner">
@@ -48,10 +49,14 @@
     width: 1.25rem;
     margin-right: 0.5rem;
   }
+  button:disabled:not(.submitting) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
   button.primary {
     background-color: var(--btn-primary);
   }
-  button.primary:hover {
+  button.primary:hover:not(:disabled) {
     background-color: var(--btn-primary-hover);
   }
   button.primary:focus {
@@ -61,7 +66,7 @@
   button.error {
     background-color: var(--btn-error);
   }
-  button.error:hover {
+  button.error:hover:not(:disabled) {
     background-color: var(--btn-error-hover);
   }
   button.error:focus {
@@ -71,7 +76,7 @@
   button.ghost {
     background-color: var(--btn-ghost);
   }
-  button.ghost:hover {
+  button.ghost:hover:not(:disabled) {
     background-color: var(--btn-ghost-hover);
   }
   button.ghost:focus {

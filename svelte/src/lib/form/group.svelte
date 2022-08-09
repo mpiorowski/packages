@@ -2,7 +2,7 @@
   export let group: string | string[];
   export let values: {
     value: string;
-    description: string;
+    label: string;
   }[];
   export let type: 'radio' | 'checkbox' = 'checkbox';
 </script>
@@ -11,13 +11,13 @@
   {#if type === 'checkbox'}
     <label class="group">
       <input bind:group value={value.value} type="checkbox" />
-      {value.description}
+      {value.label}
     </label>
   {/if}
   {#if type === 'radio'}
     <label class="group">
       <input bind:group value={value.value} type="radio" />
-      {value.description}
+      {value.label}
     </label>
   {/if}
 {/each}

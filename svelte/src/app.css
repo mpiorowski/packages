@@ -5,36 +5,38 @@
 }
 
 :root {
-  --btn-primary: #52796f;
-  --btn-primary-hover: #84a98c;
-  --btn-primary-focus: #edf2f4;
-  --btn-error: #d90429;
-  --btn-error-hover: #ef233c;
-  --btn-error-focus: #edf2f4;
-  --btn-ghost: #2b2d42;
-  --btn-ghost-hover: #8d99ae;
-  --btn-ghost-focus: #edf2f4;
+  --btn-primary: #006d75;
+  --btn-primary-hover: #08979c;
+  --btn-primary-focus: #13c2c2;
+  --btn-error: #a8071a;
+  --btn-error-hover: #cf1322;
+  --btn-error-focus: #f5222d;
+  --btn-ghost: #8c8c8c;
+  --btn-ghost-hover: #bfbfbf;
+  --btn-ghost-focus: #d9d9d9;
 
-  --accent: #52796f;
+  --input-primary: #595959;
+  --input-focus: #bfbfbf;
+  --input-error: #f5222d;
+  --input-placeholder: #bfbfbf;
 
-  --toast-success: #00b300;
-  --toast-error: #d90429;
-  --toast-warning: #ff9f1c;
-  --toast-info: #000fb3;
+  --accent: #13c2c2;
 
-  --drawer-background: #343637;
-  --dropdown-background: #343637;
+  --toast-text: #ffffff;
+  --toast-success: #237804;
+  --toast-error: #a8071a;
+  --toast-warning: #ad8b00;
+  --toast-info: #0050b3;
 
-  --input-primary: #457b9d;
-  --input-focus: #a8dadc;
-  --input-disabled: #1d3557;
-  --input-error: #dc2f02;
+  --drawer-background: #434343;
 
-  --table-header: #1d3557;
-  --table-body: #363a63;
+  --table-header: #434343;
+  --table-body: #595959;
 
-  --tooltip-background: #363a63;
-  --tooltip-text: #fff;
+  --dropdown-background: #595959;
+
+  --tooltip-background: #595959;
+  --tooltip-text: #ffffff;
 
   --shadow: 0 0 0 0px #fff, 0 0 0 0px #fff, 0 1px 3px 0 rgb(0 0 0 / 0.1),
     0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -49,7 +51,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 16px;
-  background-color: #343637;
+  background-color: #262626;
   color: white;
 }
 

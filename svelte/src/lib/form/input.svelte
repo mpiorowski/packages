@@ -2,13 +2,25 @@
   export let value: unknown;
   export let label: string;
   export let error = '';
-  export let type: 'text' | 'password' | 'email' | 'datetime-local' | 'date' =
-    'text';
+  export let type:
+    | 'text'
+    | 'number'
+    | 'password'
+    | 'email'
+    | 'datetime-local'
+    | 'date'
+    | 'color' = 'text';
   export let required = false;
   export let disabled = false;
+  export let small = false;
   export let name = '';
+  export let placeholder = '';
 
   export let maxlength: number | undefined = undefined;
+
+  export let max: string | undefined = undefined;
+  export let min: string | undefined = undefined;
+  export let step = '0.01';
 
   function typeAction(node: HTMLInputElement) {
     node.type = type;
@@ -18,7 +30,19 @@
 <label class="input">
   {label}
   {#if required}<span class="text-error">*</span>{/if}
-  <input use:typeAction bind:value {name} {disabled} {maxlength} class:error />
+  <input
+    use:typeAction
+    bind:value
+    {name}
+    {disabled}
+    {step}
+    {max}
+    {min}
+    {maxlength}
+    {placeholder}
+    class:error
+    class:small
+  />
   <p class="text-error">
     {#if error}
       {error}
@@ -49,6 +73,11 @@
 
     box-shadow: var(--shadow);
   }
+  input.small {
+    height: 1.75rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   input.error {
     outline: 2px solid var(--input-error);
   }
@@ -56,7 +85,7 @@
     outline: 2px solid var(--input-focus);
   }
   input:disabled {
-    color: var(--input-disabled);
+    opacity: 0.5;
     cursor: not-allowed;
   }
   .text-error {

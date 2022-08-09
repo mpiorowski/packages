@@ -36,6 +36,9 @@
 
     box-shadow: var(--shadow);
   }
+  input::placeholder {
+    color: var(--input-placeholder);
+  }
   input:focus {
     outline: 2px solid var(--input-focus);
   }

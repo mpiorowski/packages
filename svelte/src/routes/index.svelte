@@ -4,7 +4,6 @@
     Checkbox,
     Drawer,
     Dropdown,
-    DropdownBtn,
     Group,
     Input,
     InputSimple,
@@ -20,7 +19,7 @@
     Tooltip,
   } from '../lib';
   import InputNumber from '../lib/form/inputNumber.svelte';
-  import Avatar from './avatar.svelte';
+  import Avatar from '../lib/icon/avatar.svelte';
 
   let isDrawerOpen = false;
 
@@ -132,7 +131,7 @@
         </div>
       </svelte:fragment>
       <svelte:fragment slot="content">
-        <div style="padding: 0.5rem; background-color: gray">
+        <div style="padding: 0.5rem;">
           <p>mateuszpiorowski@gmail.com</p>
         </div>
       </svelte:fragment>
@@ -140,11 +139,11 @@
   </div>
 
   <h1>Dropdown with button</h1>
-  <DropdownBtn name="Dropdown">
+  <!-- <DropdownBtn name="Dropdown">
     <div>
       <p>Is sadasd asdasd asasda d dasd asdd dsad</p>
     </div>
-  </DropdownBtn>
+  </DropdownBtn> -->
 
   <h1>Tooltip</h1>
   <div class="flex-gap">

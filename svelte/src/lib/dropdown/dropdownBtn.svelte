@@ -1,14 +1,14 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import { clickOutside } from '../clickOutside';
   import CaretDown from '../icon/caretDown.svelte';
   import CarpetUp from '../icon/carpetUp.svelte';
+  import { useClickOutside } from '../useClickOutside';
   export let name: string;
   let isOpen = false;
 </script>
 
 <!-- Dropdown button -->
-<div use:clickOutside={() => (isOpen = false)} class="dropdown">
+<div use:useClickOutside={() => (isOpen = false)} class="dropdown">
   <button
     on:click={() => (isOpen = !isOpen)}
     class="dropdown-btn"

@@ -35,5 +35,6 @@
     font-size: 0.75rem /* 12px */;
     line-height: 1rem /* 16px */;
     background-color: var(--table-header);
+    text-transform: uppercase;
   }
 </style>

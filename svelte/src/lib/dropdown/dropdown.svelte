@@ -1,13 +1,13 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import { clickOutside } from '../clickOutside';
+  import { useClickOutside } from '../useClickOutside';
 
   export let position: 'left' | 'right' | 'center' = 'right';
   let isOpen = false;
 </script>
 
 <!-- Dropdown button -->
-<div use:clickOutside={() => (isOpen = false)} class="dropdown">
+<div use:useClickOutside={() => (isOpen = false)} class="dropdown">
   <div class="dropdown-btn" on:click={() => (isOpen = !isOpen)}>
     <slot name="button" />
   </div>
