@@ -5,9 +5,8 @@ th {
   padding-bottom: 0.75rem /* 12px */;
 }
 
-tr {
-  border-bottom: 1px solid var(--table-header);
-  background-color: var(--table-body);
+tbody tr {
+  border-bottom: 0.5px solid var(--table-header);
 }
 
 td {

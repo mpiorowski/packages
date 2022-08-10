@@ -27,11 +27,13 @@
   --toast-error: #a8071a;
   --toast-warning: #ad8b00;
   --toast-info: #0050b3;
+  --toast-info-text: #ffffff;
 
   --drawer-background: #434343;
 
   --table-header: #434343;
   --table-body: #595959;
+  --table-footer: #434343;
 
   --dropdown-background: #595959;
 

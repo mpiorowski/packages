@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import { useClickOutside } from '../useClickOutside';
+  import { useClickOutside } from './useClickOutside';
 
   export let position: 'left' | 'right' | 'center' = 'right';
   let isOpen = false;
@@ -27,11 +27,6 @@
   .dropdown {
     position: relative;
   }
-  .dropdown-btn:hover {
-    transition: all 0.2s ease-in-out;
-    opacity: 0.5;
-    cursor: pointer;
-  }
   .dropdown-content {
     display: flex;
     width: fit-content;
@@ -43,10 +38,10 @@
     box-shadow: var(--shadow);
     background-color: var(--dropdown-background);
   }
-  .right {
+  .left {
     right: 0;
   }
-  .left {
+  .right {
     left: 0;
   }
   .center {

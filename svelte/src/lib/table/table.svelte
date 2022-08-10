@@ -6,13 +6,13 @@
 <div class="container" in:fade>
   <table>
     <thead>
-      <slot name="head" />
+      <slot name="header" />
     </thead>
     <tbody>
       <slot name="body" />
     </tbody>
     <tfoot>
-      <slot name="foot" />
+      <slot name="footer" />
     </tfoot>
   </table>
 </div>
@@ -31,10 +31,18 @@
     line-height: 1.25rem /* 20px */;
     text-align: left;
   }
+  tbody {
+    background-color: var(--table-body);
+  }
   thead {
     font-size: 0.75rem /* 12px */;
     line-height: 1rem /* 16px */;
-    background-color: var(--table-header);
     text-transform: uppercase;
+    background-color: var(--table-header);
+  }
+  tfoot {
+    font-size: 0.75rem /* 12px */;
+    line-height: 1rem /* 16px */;
+    background-color: var(--table-footer);
   }
 </style>

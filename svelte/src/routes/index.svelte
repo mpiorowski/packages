@@ -1,212 +1,74 @@
-<script lang="ts">
-  import {
-    Button,
-    Checkbox,
-    Drawer,
-    Dropdown,
-    Group,
-    Input,
-    InputSimple,
-    Select,
-    Spinner,
-    Table,
-    Textarea,
-    Toast,
-    toastDelete,
-    toastError,
-    toastInfo,
-    toastSave,
-    Tooltip,
-  } from '../lib';
-  import InputNumber from '../lib/form/inputNumber.svelte';
-  import Avatar from '../lib/icon/avatar.svelte';
+<h1>Instalation</h1>
 
-  let isDrawerOpen = false;
+<pre>npm install svelte</pre>
 
-  let checkbox = true;
-  let checkboxGroup = ['val1', 'val2'];
-  let radio = 'val1';
-  let select = 'val1';
-  let input = '';
-  let inputNumber = 1;
-  let textarea = '';
-</script>
+<h2>Usage</h2>
 
-<Toast />
+Import preflight.css in __layout.svelte. This is a basic Tailwind preflight,
+that clears out the browser css. Much easier to work on it.
 
-<Drawer
-  isOpen={isDrawerOpen}
-  onClose={() => (isDrawerOpen = false)}
-  title="Drawer Title"
->
-  <svelte:fragment slot="content">
-    {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as number}
-      <p>This is a drawer component.</p>
-      <div>{number}</div>
-    {/each}
-  </svelte:fragment>
-  <svelte:fragment slot="footer">
-    <Button on:click={() => (isDrawerOpen = false)} style="ghost">Close</Button>
-  </svelte:fragment>
-</Drawer>
+<pre>
+  # __layout.svelte
+  import "preflight.css" from "@svelteUi";
+</pre>
 
-<div class="container">
-  <h1>Inputs</h1>
-  <Input bind:value={input} label="Input" />
-  <Input bind:value={input} label="Input disabled" disabled />
-  <Input bind:value={input} label="Input error" error="This is an error" />
-  <InputNumber bind:value={inputNumber} label="Input number" />
-  <InputSimple placeholder="Input simple" bind:value={input} />
+Add css config to Your main css file.
 
-  <h1>Select</h1>
-  <Select label="Select" bind:value={select}>
-    <option value="val1">Val 1</option>
-    <option value="val2">Val 2</option>
-  </Select>
+<pre>
+:root &#123;
+  --btn-primary: #006d75;
+  --btn-primary-hover: #08979c;
+  --btn-primary-focus: #13c2c2;
+  --btn-error: #a8071a;
+  --btn-error-hover: #cf1322;
+  --btn-error-focus: #f5222d;
+  --btn-ghost: #8c8c8c;
+  --btn-ghost-hover: #bfbfbf;
+  --btn-ghost-focus: #d9d9d9;
 
-  <Select label="Select error" error="This is an error" bind:value={select}>
-    <option value="val1">Val 1</option>
-    <option value="val2">Val 2</option>
-  </Select>
+  --input-primary: #595959;
+  --input-focus: #bfbfbf;
+  --input-error: #f5222d;
+  --input-placeholder: #bfbfbf;
 
-  <h1>Textarea</h1>
-  <Textarea bind:value={textarea} label="Textarea" disabled />
-  <Textarea bind:value={textarea} label="Textarea" error="This is an error" />
+  --accent: #13c2c2;
 
-  <h1>Checkbox</h1>
-  <Checkbox bind:checked={checkbox}>Checkbox</Checkbox>
+  --toast-text: #ffffff;
+  --toast-success: #237804;
+  --toast-error: #a8071a;
+  --toast-warning: #ad8b00;
+  --toast-info: #0050b3;
+  --toast-info-text: #ffffff;
 
-  <h1>CheckboxGroup</h1>
-  <Group
-    type="checkbox"
-    bind:group={checkboxGroup}
-    values={[
-      { value: 'val1', description: 'desc1' },
-      { value: 'val2', description: 'desc2' },
-    ]}
-  />
+  --drawer-background: #434343;
 
-  <h1>Radio</h1>
-  <Group
-    type="radio"
-    bind:group={radio}
-    values={[
-      { value: 'val3', description: 'desc1' },
-      { value: 'val4', description: 'desc2' },
-    ]}
-  />
+  --table-header: #434343;
+  --table-body: #595959;
+  --table-footer: #434343;
 
-  <h1>Buttons</h1>
-  <div class="flex-gap">
-    <Button>Primary</Button>
-    <Button submitting>Submitting</Button>
-    <Button disabled>Disabled</Button>
-    <Button style="error">Error</Button>
-    <Button style="ghost">Ghost</Button>
-  </div>
+  --dropdown-background: #595959;
 
-  <h1>Spinner</h1>
-  <Spinner size={100} />
+  --tooltip-background: #595959;
+  --tooltip-text: #ffffff;
 
-  <h1>Drawer</h1>
-  <Button on:click={() => (isDrawerOpen = true)}>Open drawer</Button>
-  <!-- 
-  <h1>Pagination</h1>
-  <Pagination pagination={$pagination} {actions} /> -->
+  --shadow: 0 0 0 0px #fff, 0 0 0 0px #fff, 
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+&#125;
 
-  <h1>Toast</h1>
-  <div class="flex-gap">
-    <Button on:click={toastSave}>Toast save</Button>
-    <Button on:click={toastError}>Toast error</Button>
-    <Button on:click={toastDelete}>Toast delete</Button>
-    <Button on:click={toastInfo}>Toast info</Button>
-  </div>
+.no-scroll &#123;
+  overflow: hidden;
+&#125;
+</pre>
 
-  <h1>Dropdown</h1>
-  <div class="flex-gap" style="margin-left: auto">
-    <Dropdown>
-      <svelte:fragment slot="button">
-        <div style="width: 3rem">
-          <Avatar />
-        </div>
-      </svelte:fragment>
-      <svelte:fragment slot="content">
-        <div style="padding: 0.5rem;">
-          <p>mateuszpiorowski@gmail.com</p>
-        </div>
-      </svelte:fragment>
-    </Dropdown>
-  </div>
-
-  <h1>Dropdown with button</h1>
-  <!-- <DropdownBtn name="Dropdown">
-    <div>
-      <p>Is sadasd asdasd asasda d dasd asdd dsad</p>
-    </div>
-  </DropdownBtn> -->
-
-  <h1>Tooltip</h1>
-  <div class="flex-gap">
-    <Tooltip tooltip={'tooltip text'} position={'top'} move={0.2}>
-      <div class="tooltip-container">Top</div>
-    </Tooltip>
-
-    <Tooltip tooltip={'tooltip text'} position={'bottom'} move={0.2}>
-      <div class="tooltip-container">Bottom</div>
-    </Tooltip>
-    <Tooltip tooltip={'tooltip text'} move={0.2} position={'right'}>
-      <div class="tooltip-container">Right</div>
-    </Tooltip>
-
-    <Tooltip tooltip={'tooltip text'} position={'left'} move={0.2}>
-      <div class="tooltip-container">Left</div>
-    </Tooltip>
-  </div>
-
-  <h1>Table</h1>
-  <Table>
-    <svelte:fragment slot="head">
-      <th>Name</th>
-      <th>Age</th>
-      <th>Email</th>
-    </svelte:fragment>
-    <svelte:fragment slot="body">
-      <tr>
-        <td>John</td>
-        <td>25</td>
-        <td>email@gmail.com</td>
-      </tr>
-      <tr>
-        <td>Jane</td>
-        <td>24</td>
-        <td>email@gmail.com</td>
-      </tr>
-    </svelte:fragment>
-  </Table>
-</div>
+Import Your desired component.
+<pre>import &#123; Button &#125; from "@svelteUi";</pre>
 
 <style>
-  .container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .flex-gap {
-    display: flex;
-    gap: 10px;
-  }
-  .tooltip-container {
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid gray;
-    background-color: aliceblue;
-    border-radius: 0.5rem;
-    width: 5rem;
-    height: 2.5rem;
+  pre {
+    background-color: #707070;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
 </style>

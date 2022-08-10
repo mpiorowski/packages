@@ -32,6 +32,8 @@
     justify-content: center;
     width: 100%;
     height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     user-select: none;
     font-weight: bold;

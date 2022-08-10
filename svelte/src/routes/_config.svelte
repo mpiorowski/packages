@@ -26,11 +26,13 @@
   let toastError = '#a8071a';
   let toastWarning = '#ad8b00';
   let toastInfo = '#0050b3';
+  let toastInfoText = '#ffffff';
 
   let drawerBackground = '#434343';
 
   let tableHeader = '#434343';
   let tableBody = '#595959';
+  let tableFooter = '#434343';
 
   let dropdownBackground = '#595959';
 
@@ -61,9 +63,11 @@
     styles.setProperty('--toast-error', toastError);
     styles.setProperty('--toast-warning', toastWarning);
     styles.setProperty('--toast-info', toastInfo);
+    styles.setProperty('--toast-info-text', toastInfoText);
     styles.setProperty('--drawer-background', drawerBackground);
     styles.setProperty('--table-header', tableHeader);
     styles.setProperty('--table-body', tableBody);
+    styles.setProperty('--table-footer', tableFooter);
     styles.setProperty('--dropdown-background', dropdownBackground);
     styles.setProperty('--tooltip-background', tooltipBackground);
     styles.setProperty('--tooltip-text', tooltipText);
@@ -126,6 +130,12 @@
   <Input small type="color" label="--toast-error" bind:value={toastError} />
   <Input small type="color" label="--toast-warning" bind:value={toastWarning} />
   <Input small type="color" label="--toast-info" bind:value={toastInfo} />
+  <Input
+    small
+    type="color"
+    label="--toast-info-text"
+    bind:value={toastInfoText}
+  />
 {:else if $page.url.pathname === '/drawer'}
   <Input
     small
@@ -136,6 +146,7 @@
 {:else if $page.url.pathname === '/table'}
   <Input small type="color" label="--table-header" bind:value={tableHeader} />
   <Input small type="color" label="--table-body" bind:value={tableBody} />
+  <Input small type="color" label="--table-footer" bind:value={tableFooter} />
 {:else if $page.url.pathname === '/dropdown'}
   <Input
     small

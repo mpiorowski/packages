@@ -86,6 +86,12 @@
     padding-left: 1rem;
     color: var(--toast-text);
   }
+  .info .toast-text {
+    color: var(--toast-info-text);
+  }
+  .info .close {
+    color: var(--toast-info-text);
+  }
   .success {
     background-color: var(--toast-success);
   }

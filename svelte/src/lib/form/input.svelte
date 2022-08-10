@@ -4,7 +4,6 @@
   export let error = '';
   export let type:
     | 'text'
-    | 'number'
     | 'password'
     | 'email'
     | 'datetime-local'
@@ -17,10 +16,6 @@
   export let placeholder = '';
 
   export let maxlength: number | undefined = undefined;
-
-  export let max: string | undefined = undefined;
-  export let min: string | undefined = undefined;
-  export let step = '0.01';
 
   function typeAction(node: HTMLInputElement) {
     node.type = type;
@@ -35,9 +30,6 @@
     bind:value
     {name}
     {disabled}
-    {step}
-    {max}
-    {min}
     {maxlength}
     {placeholder}
     class:error

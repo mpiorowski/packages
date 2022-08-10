@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Checkbox, Input, Textarea } from '../lib';
+  import InputNumber from '../lib/form/inputNumber.svelte';
   import InputSimple from '../lib/form/inputSimple.svelte';
 
   let input = '';
@@ -22,13 +23,13 @@
   label="Input text"
   type="text"
 />
-<Input
+<InputNumber
   bind:value={inputNumber}
   {required}
   {disabled}
+  max={100}
   error={withError ? 'This must be filled' : ''}
   label="Input number"
-  type="number"
 />
 <Input
   bind:value={inputDate}

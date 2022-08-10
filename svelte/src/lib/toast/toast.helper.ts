@@ -43,5 +43,3 @@ export const toastDelete = (): void =>
   toast('common.deleted', ToastType.WARNING, 3000);
 export const toastError = (): void =>
   toast('common.error', ToastType.ERROR, 3000);
-export const toastInfo = (): void =>
-  toast('common.error', ToastType.INFO, 3000);

@@ -1,16 +1,26 @@
 <script lang="ts">
-  import { Dropdown } from '../lib';
-  import Avatar from '../lib/icon/avatar.svelte';
-  import CaretDown from '../lib/icon/caretDown.svelte';
-  import CarpetUp from '../lib/icon/carpetUp.svelte';
+  import { Dropdown, Group } from '../lib';
+  import Button from '../lib/form/button.svelte';
 
-  let isOpen = false;
+  let position = [
+    {
+      value: 'left',
+      label: 'Left',
+    },
+    {
+      value: 'right',
+      label: 'Right',
+    },
+  ];
+
+  let group: 'left' | 'right' = 'left';
 </script>
 
-<div style="margin-left: auto; margin-bottom:50px;">
-  <Dropdown>
+<Group values={position} type="radio" bind:group />
+<div class="container">
+  <!-- <Dropdown position={group}>
     <svelte:fragment slot="button">
-      <div style="width: 3rem">
+      <div class="avatar">
         <Avatar />
       </div>
     </svelte:fragment>
@@ -20,24 +30,10 @@
         <div class="logout">Logout</div>
       </div>
     </svelte:fragment>
-  </Dropdown>
-</div>
-
-<div style="margin-right: auto; margin-bottom:50px">
-  <Dropdown position="left">
+  </Dropdown> -->
+  <Dropdown position={group}>
     <svelte:fragment slot="button">
-      <button
-        class="dropdown-btn"
-        type="button"
-        on:click={() => (isOpen = !isOpen)}
-      >
-        Open dropdown
-        {#if isOpen}
-          <CarpetUp />
-        {:else}
-          <CaretDown />
-        {/if}
-      </button>
+      <Button style="ghost">Dropdown</Button>
     </svelte:fragment>
     <svelte:fragment slot="content">
       <div>
@@ -49,6 +45,22 @@
 </div>
 
 <style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .avatar {
+    height: 3rem;
+    width: 3rem;
+  }
+  .avatar:hover {
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5;
+    cursor: pointer;
+  }
   .email {
     margin-top: 0.5rem;
     padding: 0.5rem;
@@ -60,16 +72,6 @@
   }
   .logout:hover {
     background-color: #969393;
-    cursor: pointer;
-  }
-  .dropdown-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid gray;
-    background-color: rgb(156, 156, 157);
     cursor: pointer;
   }
 </style>
