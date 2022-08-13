@@ -2,6 +2,13 @@
   import { page } from '$app/stores';
   import Config from './_config.svelte';
   $: url = $page.url.pathname;
+  
+  const test = {
+    name: 'WWW",
+    age" 24
+  }
+  
+
 </script>
 
 <div class="main">
@@ -32,13 +39,14 @@
   .main {
     display: grid;
     grid-template-columns: 200px 1fr;
+    overflow: auto;
+    height: 100vh;
   }
   .navigation {
     display: flex;
     flex-direction: column;
     /* gap: 8px; */
     border-right: 1px solid #434343;
-    height: 100vh;
   }
   a {
     display: flex;
@@ -47,7 +55,7 @@
     padding: 0.5rem;
   }
   a:hover {
-    background-color: #434343;
+    opacity: 0.8;
   }
   a.active {
     background-color: #434343;
@@ -56,8 +64,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
-    overflow: auto;
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .config {
     border-top: 1px solid #434343;
