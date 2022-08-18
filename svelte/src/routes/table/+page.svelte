@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { Table } from '../lib';
+  import { Table } from '../../lib';
 </script>
 
+<h1>Table</h1>
 <Table>
   <svelte:fragment slot="header">
     <tr>

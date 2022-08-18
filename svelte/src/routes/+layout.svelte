@@ -1,14 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import Config from './_config.svelte';
+  import Config from './config.svelte';
   $: url = $page.url.pathname;
-  
-  const test = {
-    name: 'WWW",
-    age" 24
-  }
-  
-
 </script>
 
 <div class="main">
@@ -26,19 +19,17 @@
     <a href="/spinner" class={url === '/spinner' ? 'active' : ''}>Spinner</a>
   </div>
   <div class="content">
-    <div class="slot">
-      <slot />
-    </div>
-    <div class="config">
-      <Config />
-    </div>
+    <slot />
+  </div>
+  <div class="config">
+    <Config />
   </div>
 </div>
 
 <style>
   .main {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px 1fr 200px;
     overflow: auto;
     height: 100vh;
   }
@@ -64,20 +55,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 1rem;
     max-width: 800px;
     width: 100%;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
   }
   .config {
-    border-top: 1px solid #434343;
+    border-left: 1px solid #434343;
     padding: 2rem;
-  }
-  .slot {
-    padding: 2rem;
-    padding-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
 </style>

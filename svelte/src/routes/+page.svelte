@@ -1,20 +1,25 @@
-<h1>Instalation</h1>
+<script lang="ts">
+  import { fade } from 'svelte/transition';
+</script>
 
-<pre>npm install svelte</pre>
+<div in:fade style="display: flex; gap: 20px; flex-direction: column;">
+  <h1>Instalation</h1>
 
-<h2>Usage</h2>
+  <pre>npm install svelte</pre>
 
-Import preflight.css in __layout.svelte. This is a basic Tailwind preflight,
-that clears out the browser css. Much easier to work on it.
+  <h2>Usage</h2>
 
-<pre>
+  Import preflight.css in __layout.svelte. This is a basic Tailwind preflight,
+  that clears out the browser css. Much easier to work on it.
+
+  <pre>
   # __layout.svelte
   import "preflight.css" from "@svelteUi";
 </pre>
 
-Add css config to Your main css file.
+  Add css config to Your main css file.
 
-<pre>
+  <pre>
 :root &#123;
   --btn-primary: #006d75;
   --btn-primary-hover: #08979c;
@@ -61,8 +66,9 @@ Add css config to Your main css file.
 &#125;
 </pre>
 
-Import Your desired component.
-<pre>import &#123; Button &#125; from "@svelteUi";</pre>
+  Import Your desired component.
+  <pre>import &#123; Button &#125; from "@svelteUi";</pre>
+</div>
 
 <style>
   pre {

@@ -16,6 +16,7 @@
   [data-tooltip] {
     position: relative;
     display: block;
+    width: fit-content;
   }
 
   [data-tooltip]::before,

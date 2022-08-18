@@ -38,10 +38,10 @@
     box-shadow: var(--shadow);
     background-color: var(--dropdown-background);
   }
-  .left {
+  .right {
     right: 0;
   }
-  .right {
+  .left {
     left: 0;
   }
   .center {
