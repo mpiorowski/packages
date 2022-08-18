@@ -22,21 +22,22 @@
 <style>
   .center {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
   svg {
-    @apply animate-spin text-white;
+    animation: spin 1s linear infinite;
   }
   circle {
-    @apply opacity-25;
+    opacity: 0.25;
   }
   path {
-    @apply opacity-75;
+    opacity: 0.75;
   }
 </style>

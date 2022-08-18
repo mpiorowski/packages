@@ -10,26 +10,28 @@
 </script>
 
 <label class="checkbox">
-  <input
-    bind:checked
-    on:change={onChange}
-    type="checkbox"
-    class="checkbox-input"
-  />
+  <input bind:checked on:change={onChange} type="checkbox" />
   <slot />
 </label>
 
 <style>
   .checkbox {
-    @apply select-none font-medium text-gray-100 flex items-center gap-2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+    font-weight: bold;
   }
   .checkbox:hover {
-    @apply cursor-pointer;
+    cursor: pointer;
   }
-  .checkbox-input {
-    @apply w-5 h-5 bg-gray-100 rounded accent-teal-500 no-underline;
+  input {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.25rem;
+    accent-color: var(--accent);
   }
-  .checkbox-input:hover {
-    @apply cursor-pointer;
+  input:hover {
+    cursor: pointer;
   }
 </style>

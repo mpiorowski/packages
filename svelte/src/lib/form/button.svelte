@@ -2,7 +2,7 @@
   import Spinner from '../spinner.svelte';
 
   export let form = '';
-  export let style: 'green' | 'red' | 'ghost' = 'green';
+  export let style: 'primary' | 'error' | 'ghost' = 'primary';
   export let type: 'button' | 'submit' = 'button';
   export let submitting = false;
   export let disabled = false;
@@ -13,8 +13,9 @@
   {form}
   on:click
   {type}
-  class={['button', style].join(' ')}
-  disabled={submitting || disabled}
+  class={style}
+  disabled={disabled || submitting}
+  class:submitting
 >
   {#if submitting}
     <div class="spinner">
@@ -25,45 +26,62 @@
 </button>
 
 <style>
-  .button {
-    @apply transition h-9 font-bold rounded-lg text-sm px-4 py-2 text-center inline-flex items-center justify-center w-full;
-  }
-  .button:focus {
-    @apply ring-2;
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    user-select: none;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    transition: all 0.1s ease-in-out;
+
+    outline: 0px solid var(--btn-primary);
+    box-shadow: var(--shadow);
   }
   .spinner {
-    @apply h-5 w-5 mr-2;
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-right: 0.5rem;
   }
-  button {
-    @apply text-gray-100;
+  button:disabled:not(.submitting) {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
-  button.green {
-    @apply bg-teal-600;
+  button.primary {
+    background-color: var(--btn-primary);
   }
-  button.green:hover {
-    @apply bg-teal-500;
+  button.primary:hover:not(:disabled) {
+    background-color: var(--btn-primary-hover);
   }
-  button.green:focus {
-    @apply ring-teal-300;
+  button.primary:focus {
+    outline: 2px solid var(--btn-primary-focus);
   }
 
-  button.red {
-    @apply bg-red-600;
+  button.error {
+    background-color: var(--btn-error);
   }
-  button.red:hover {
-    @apply bg-red-700;
+  button.error:hover:not(:disabled) {
+    background-color: var(--btn-error-hover);
   }
-  button.red:focus {
-    @apply ring-red-300;
+  button.error:focus {
+    box-shadow: 0 0 0 2px var(--btn-error-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 
   button.ghost {
-    @apply bg-slate-600;
+    background-color: var(--btn-ghost);
   }
-  button.ghost:hover {
-    @apply bg-slate-500;
+  button.ghost:hover:not(:disabled) {
+    background-color: var(--btn-ghost-hover);
   }
   button.ghost:focus {
-    @apply ring-slate-300;
+    box-shadow: 0 0 0 2px var(--btn-ghost-focus), 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 </style>

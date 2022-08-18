@@ -3,25 +3,46 @@
   import './table.css';
 </script>
 
-<div class="table-container" in:fade>
-  <table class="table">
-    <thead class="table-head">
-      <slot name="head" />
+<div class="container" in:fade>
+  <table>
+    <thead>
+      <slot name="header" />
     </thead>
     <tbody>
       <slot name="body" />
     </tbody>
+    <tfoot>
+      <slot name="footer" />
+    </tfoot>
   </table>
 </div>
 
 <style>
-  .table-container {
-    @apply relative overflow-x-auto shadow-md rounded-lg;
+  .container {
+    position: relative;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+
+    box-shadow: var(--shadow);
   }
-  .table {
-    @apply w-full text-sm text-left text-gray-200;
+  table {
+    width: 100%;
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */;
+    text-align: left;
   }
-  .table-head {
-    @apply text-xs uppercase bg-slate-700 text-slate-300;
+  tbody {
+    background-color: var(--table-body);
+  }
+  thead {
+    font-size: 0.75rem /* 12px */;
+    line-height: 1rem /* 16px */;
+    text-transform: uppercase;
+    background-color: var(--table-header);
+  }
+  tfoot {
+    font-size: 0.75rem /* 12px */;
+    line-height: 1rem /* 16px */;
+    background-color: var(--table-footer);
   }
 </style>

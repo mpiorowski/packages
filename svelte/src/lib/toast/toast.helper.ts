@@ -7,10 +7,10 @@ type Toast = {
 };
 
 export enum ToastType {
-  INFO = 'INFO',
-  SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR',
-  WARNING = 'WARNING',
+  INFO = 'info',
+  SUCCESS = 'success',
+  ERROR = 'error',
+  WARNING = 'warning',
 }
 
 export const notifications = writable<Toast[]>([]);
@@ -20,19 +20,26 @@ export const toast = (
   type: ToastType,
   timeout = 2000
 ): void => {
+  const id = crypto.randomUUID();
   notifications.update((state) => {
-    return [...state, { id: crypto.randomUUID(), message, type }];
+    return [...state, { id: id, message, type }];
   });
   setTimeout(() => {
     notifications.update((state) => {
-      return state.filter((_a, i) => i > 0) || [];
+      return state.filter((t) => t.id !== id);
     });
   }, timeout);
 };
 
+export const removeToast = (id: string): void => {
+  notifications.update((state) => {
+    return state.filter((t) => t.id !== id);
+  });
+};
+
 export const toastSave = (): void =>
-  toast('common.saved', ToastType.SUCCESS, 2000);
+  toast('common.saved', ToastType.SUCCESS, 3000);
 export const toastDelete = (): void =>
-  toast('common.deleted', ToastType.WARNING, 2000);
+  toast('common.deleted', ToastType.WARNING, 3000);
 export const toastError = (): void =>
-  toast('common.error', ToastType.ERROR, 2000);
+  toast('common.error', ToastType.ERROR, 3000);

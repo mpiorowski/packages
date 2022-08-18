@@ -1,4 +1,4 @@
-export function clickOutside(
+export function useClickOutside(
   node: HTMLElement,
   handler: () => void
 ): { destroy: () => void } {

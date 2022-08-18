@@ -1,7 +1,7 @@
 <script lang="ts">
   import { backOut } from 'svelte/easing';
   import { fade, fly } from 'svelte/transition';
-  import { notifications, ToastType } from './toast.helper';
+  import { notifications, removeToast } from './toast.helper';
   export let saveMsg = 'Saved';
   export let errorMsg = 'Error';
   export let deleteMsg = 'Deleted';
@@ -18,14 +18,8 @@
         opacity: 0.1,
         easing: backOut,
       }}
-      out:fade={{ duration: 1000 }}
-      class={[
-        'toast',
-        notification.type === ToastType.SUCCESS && 'green',
-        notification.type === ToastType.ERROR && 'red',
-        notification.type === ToastType.INFO && 'blue',
-        notification.type === ToastType.WARNING && 'orange',
-      ].join(' ')}
+      out:fade={{ duration: 200 }}
+      class={['toast', notification.type].join(' ')}
     >
       <div class="toast-text">
         {#if notification.message === 'common.saved'}
@@ -38,7 +32,9 @@
           {notification.message}
         {/if}
       </div>
-      {#if notification.icon}<i class={notification.icon} />{/if}
+      <div class="close" on:click={() => removeToast(notification.id)}>
+        &times;
+      </div>
     </div>
   {/each}
 </div>
@@ -49,30 +45,63 @@
     top: 10px;
     left: 0;
     right: 0;
-    margin: 0 auto;
+    width: fit-content;
+    margin: auto;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
     align-items: center;
-    pointer-events: none;
-    z-index: 9999;
+    z-index: 999;
   }
   .toast {
-    @apply mb-3 rounded w-fit m-auto shadow-md text-gray-100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow);
+  }
+  .close {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.25rem /* 18px */;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--toast-text);
+  }
+  .close:hover {
+    opacity: 0.5;
   }
   .toast-text {
-    @apply px-8 py-3 block font-normal text-lg;
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: default;
+    padding-left: 1rem;
+    color: var(--toast-text);
   }
-  .green {
-    @apply bg-green-700;
+  .info .toast-text {
+    color: var(--toast-info-text);
   }
-  .red {
-    @apply bg-red-700;
+  .info .close {
+    color: var(--toast-info-text);
   }
-  .blue {
-    @apply bg-blue-700;
+  .success {
+    background-color: var(--toast-success);
   }
-  .orange {
-    @apply bg-orange-600;
+  .error {
+    background-color: var(--toast-error);
+  }
+  .info {
+    background-color: var(--toast-info);
+  }
+  .warning {
+    background-color: var(--toast-warning);
   }
 </style>

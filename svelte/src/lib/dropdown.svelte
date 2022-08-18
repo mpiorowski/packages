@@ -1,17 +1,23 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
-  import { clickOutside } from './clickOutside';
+  import { useClickOutside } from './useClickOutside';
+
+  export let position: 'left' | 'right' | 'center' = 'right';
   let isOpen = false;
 </script>
 
 <!-- Dropdown button -->
-<div use:clickOutside={() => (isOpen = false)} class="dropdown">
+<div use:useClickOutside={() => (isOpen = false)} class="dropdown">
   <div class="dropdown-btn" on:click={() => (isOpen = !isOpen)}>
     <slot name="button" />
   </div>
   <!-- Dropdown content -->
   {#if isOpen}
-    <div transition:fade={{ duration: 100 }} class="dropdown-content">
+    <div
+      transition:fade={{ duration: 100 }}
+      class="dropdown-content {position}"
+      class:position
+    >
       <slot name="content" />
     </div>
   {/if}
@@ -21,12 +27,25 @@
   .dropdown {
     position: relative;
   }
-  .dropdown-btn:hover {
-    transition: all 0.2s ease-in-out;
-    opacity: 0.5;
-    cursor: pointer;
-  }
   .dropdown-content {
-    @apply z-10 flex mt-2 bg-slate-600 rounded-md shadow-md absolute w-fit right-0;
+    display: flex;
+    width: fit-content;
+    z-index: 10;
+    margin-top: 0.5rem /* 8px */;
+    border-radius: 0.5rem;
+    position: absolute;
+
+    box-shadow: var(--shadow);
+    background-color: var(--dropdown-background);
+  }
+  .right {
+    right: 0;
+  }
+  .left {
+    left: 0;
+  }
+  .center {
+    left: 50%;
+    transform: translateX(-50%);
   }
 </style>
